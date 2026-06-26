@@ -1,4 +1,4 @@
-# Аналитическая традиция: 31 философ
+# Аналитическая традиция: 50 философов
 
 Статус: `imported`
 
@@ -47,6 +47,19 @@ EMS-сортировка по темам продукта и бизнеса: `im
 | 35 | Thomas Nagel | `35_Thomas_Nagel` |
 | 36 | Karl Popper | `36_Karl_Popper` |
 | 37 | Nelson Goodman | `37_Nelson_Goodman` |
+| 38 | Frank Ramsey | `38_Frank_Ramsey` |
+| 39 | Michael Dummett | `39_Michael_Dummett` |
+| 40 | Derek Parfit | `40_Derek_Parfit` |
+| 41 | John McDowell | `41_John_McDowell` |
+| 42 | Jerry Fodor | `42_Jerry_Fodor` |
+| 43 | David Chalmers | `43_David_Chalmers` |
+| 44 | Ruth Millikan | `44_Ruth_Millikan` |
+| 45 | Philippa Foot | `45_Philippa_Foot` |
+| 46 | Tyler Burge | `46_Tyler_Burge` |
+| 47 | Gareth Evans | `47_Gareth_Evans` |
+| 48 | Peter Geach | `48_Peter_Geach` |
+| 49 | Peter van Inwagen | `49_Peter_van_Inwagen` |
+| 50 | Alvin Plantinga | `50_Alvin_Plantinga` |
 
 ## EMS-темы
 
