@@ -1,0 +1,5 @@
+asset_id,file_path,asset_type,status,usage,channel,source,rights,notes
+brandbook_final,brand-os/02-brand/imported/brandbook_efremov_final.md,document,canonical,brand_system,all,imported_codex,owned_or_user_provided,Полный финальный брендбук
+brandbook_facts,brand-os/02-brand/imported/brandbook_facts_only_en.md,document,canonical,brand_system,all,imported_codex,owned_or_user_provided,Короткая fact-only спецификация
+instagram_grid_references,brand-os/07-assets/imported/instagram_grid_references,visual_pack,imported,instagram_grid,instagram,imported_codex,needs_validation,4 референса Instagram-сетки
+dmitry_final_references,brand-os/07-assets/imported/dmitry_final_all_references_pack,photo_reference_pack,imported,identity_and_visual_reference,all,imported_codex,needs_validation,"Портретные и одежные референсы Дмитрия"

@@ -1,0 +1,359 @@
+[
+  {
+    "episode": 1,
+    "title": "Вы спорите не о стратегии, а о смысле одного слова",
+    "pages": 6,
+    "word_count": 1197,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 2,
+    "title": "North Star Metric: как выбрать главную метрику продукта",
+    "pages": 6,
+    "word_count": 1476,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 3,
+    "title": "Когда здравый смысл сильнее красивой стратегии",
+    "pages": 6,
+    "word_count": 1187,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 4,
+    "title": "AARRR: как найти слабое место роста",
+    "pages": 6,
+    "word_count": 1465,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 5,
+    "title": "Все говорят одно предложение, но внутри него три разных решения",
+    "pages": 6,
+    "word_count": 1191,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 6,
+    "title": "Activation Rate: как доказать, что пользователь получил ценность",
+    "pages": 6,
+    "word_count": 1456,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 7,
+    "title": "Команда использует одно слово, но играет в разные игры",
+    "pages": 6,
+    "word_count": 1205,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 8,
+    "title": "Conversion Rate: как не ошибиться в знаменателе",
+    "pages": 6,
+    "word_count": 1462,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 9,
+    "title": "Вы спорите о решении, хотя не договорились о правилах языка",
+    "pages": 6,
+    "word_count": 1185,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 10,
+    "title": "Funnel Drop-off: где воронка теряет деньги",
+    "pages": 6,
+    "word_count": 1456,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 11,
+    "title": "Встреча закончилась выводом, который никто не может проверить",
+    "pages": 6,
+    "word_count": 1182,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 12,
+    "title": "Retention Rate: нужен ли продукт после первого интереса",
+    "pages": 6,
+    "word_count": 1455,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 13,
+    "title": "Вы наняли процесс, а ждете от него результата",
+    "pages": 6,
+    "word_count": 1179,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 14,
+    "title": "Cohort Analysis: почему среднее значение обманывает",
+    "pages": 6,
+    "word_count": 1450,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 15,
+    "title": "Одна фраза руководителя уже изменила поведение команды",
+    "pages": 6,
+    "word_count": 1190,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 16,
+    "title": "Churn Rate: как считать потери пользователей и выручки",
+    "pages": 6,
+    "word_count": 1461,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 17,
+    "title": "Данные выглядят точными, пока вы не спросили: в какой ситуации?",
+    "pages": 6,
+    "word_count": 1189,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 18,
+    "title": "DAU, WAU, MAU: как измерить живую аудиторию",
+    "pages": 6,
+    "word_count": 1452,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 19,
+    "title": "Человек сказал все правильно, но команда поняла другое",
+    "pages": 6,
+    "word_count": 1178,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 20,
+    "title": "Stickiness: когда продукт становится привычкой",
+    "pages": 6,
+    "word_count": 1445,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 21,
+    "title": "Одна плохая гипотеза держит на себе весь план продаж",
+    "pages": 6,
+    "word_count": 1186,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 22,
+    "title": "Feature Adoption: как понять, нужна ли функция",
+    "pages": 6,
+    "word_count": 1456,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 23,
+    "title": "Факт есть в таблице, но решения из него все равно нет",
+    "pages": 6,
+    "word_count": 1184,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 24,
+    "title": "CAC: сколько стоит новый клиент",
+    "pages": 6,
+    "word_count": 1463,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 25,
+    "title": "Клиент сказал простую фразу, а вы перевели ее в неправильную задачу",
+    "pages": 6,
+    "word_count": 1182,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 26,
+    "title": "LTV: как считать ценность клиента без фантазии",
+    "pages": 6,
+    "word_count": 1476,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 27,
+    "title": "Все спорят о том же слове, но каждый держит в голове другой объект",
+    "pages": 6,
+    "word_count": 1193,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 28,
+    "title": "LTV:CAC: когда рост окупается",
+    "pages": 6,
+    "word_count": 1456,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 29,
+    "title": "Значение продукта находится не в презентации, а в среде клиента",
+    "pages": 6,
+    "word_count": 1183,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 30,
+    "title": "CAC Payback: когда вернутся деньги на привлечение",
+    "pages": 6,
+    "word_count": 1457,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 31,
+    "title": "План выглядит разумно, пока не проверили второй сценарий",
+    "pages": 6,
+    "word_count": 1188,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 32,
+    "title": "ARPU, ARPA, ARPPU: как читать среднюю выручку",
+    "pages": 6,
+    "word_count": 1457,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 33,
+    "title": "Команда делает задачу, но уже забыла, зачем она это делает",
+    "pages": 6,
+    "word_count": 1183,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 34,
+    "title": "MRR и ARR: как не перепутать подписку и случайные деньги",
+    "pages": 6,
+    "word_count": 1456,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 35,
+    "title": "Метрика стала решением, хотя за ошибку заплатит другой человек",
+    "pages": 6,
+    "word_count": 1187,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 36,
+    "title": "Trial-to-Paid: почему trial не всегда продает",
+    "pages": 6,
+    "word_count": 1451,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 37,
+    "title": "Роль в системе заставляет человека вести себя как другой пользователь",
+    "pages": 6,
+    "word_count": 1188,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 38,
+    "title": "NRR и GRR: как удерживать и расширять выручку",
+    "pages": 6,
+    "word_count": 1462,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 39,
+    "title": "Вы улучшили измерение и внезапно изменили сам продукт",
+    "pages": 6,
+    "word_count": 1189,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 40,
+    "title": "NPS, CSAT, CES: что опросы показывают, а что скрывают",
+    "pages": 6,
+    "word_count": 1459,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 41,
+    "title": "Доверие появляется не после слов, а после принятых обязательств",
+    "pages": 6,
+    "word_count": 1182,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 42,
+    "title": "Компания тонет не в задачах, а в среде информации",
+    "pages": 6,
+    "word_count": 1187,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 43,
+    "title": "Умный человек молчит на встрече, и компания теряет знание",
+    "pages": 6,
+    "word_count": 1178,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 44,
+    "title": "Запуск выстрелил, но никто не знает почему",
+    "pages": 6,
+    "word_count": 1177,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 45,
+    "title": "То, что сработало в одном рынке, ломается в другом",
+    "pages": 6,
+    "word_count": 1190,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 46,
+    "title": "Клиент решил раньше, чем успел объяснить свое решение",
+    "pages": 6,
+    "word_count": 1181,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 47,
+    "title": "Вы не имеете права утверждать то, чего еще не знаете",
+    "pages": 6,
+    "word_count": 1185,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 48,
+    "title": "Инструмент уже думает вместе с вами, но вы называете его просто софтом",
+    "pages": 6,
+    "word_count": 1186,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 49,
+    "title": "Пользователь видит не экран, а возможность действовать",
+    "pages": 6,
+    "word_count": 1183,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 50,
+    "title": "Люди доверяют ответу не потому, что он длинный",
+    "pages": 6,
+    "word_count": 1189,
+    "banned_marker_hits": []
+  },
+  {
+    "episode": 51,
+    "title": "Лучший сотрудник знает больше, чем может объяснить в регламенте",
+    "pages": 6,
+    "word_count": 1176,
+    "banned_marker_hits": []
+  }
+]

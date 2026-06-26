@@ -1,0 +1,112 @@
+profile:
+  name: "Дмитрий Ефремов"
+  working_brand: "Eneik Management System"
+  primary_site: "https://dmitryefremov.com/"
+  email: "dmitrii.eneik@gmail.com"
+  short_positioning:
+    - "предприниматель"
+    - "инженер"
+    - "философ"
+    - "бизнес-консультант"
+  core_statement: "Инженерный подход к созданию IT-продуктов и MVP, где техническое решение обосновано бизнес-логикой."
+
+channels:
+  website:
+    url: "https://dmitryefremov.com/"
+    status: "connected_public_source"
+  youtube:
+    url: "https://www.youtube.com/@dmitrii.efremov"
+    status: "needs_metrics_import"
+  instagram:
+    url: "https://www.instagram.com/dmitrii.eneik"
+    status: "needs_metrics_import"
+
+canonical_assets:
+  brandbook_full:
+    path: "brand-os/02-brand/imported/brandbook_efremov_final.md"
+    status: "canonical_imported"
+  brandbook_facts:
+    path: "brand-os/02-brand/imported/brandbook_facts_only_en.md"
+    status: "canonical_imported"
+  philosophy_analytic_tradition:
+    path: "brand-os/04-philosophy/imported/analytic_tradition_31_books_bio"
+    status: "imported"
+  philosophy_ems_sorted:
+    path: "brand-os/04-philosophy/imported/analytic_31_ems_sorted"
+    status: "imported"
+  mvp_metrics_course:
+    path: "brand-os/05-metrics/imported/mvp_metrics_youtube_course"
+    status: "imported"
+  dmitry_photo_references:
+    path: "brand-os/07-assets/imported/dmitry_final_all_references_pack"
+    status: "imported"
+  instagram_grid_references:
+    path: "brand-os/07-assets/imported/instagram_grid_references"
+    status: "imported"
+  instagram_hard_mvp_metrics_campaign:
+    path: "brand-os/06-content/imported/instagram_campaign_hard_mvp_metrics.txt"
+    status: "imported"
+  youtube_mvp_engineering_series:
+    path: "brand-os/06-content/imported/youtube_series_mvp_engineering_modern_analytic"
+    status: "imported"
+  youtube_analytical_philosophy_series:
+    path: "brand-os/06-content/imported/youtube_series_analytical_philosophy"
+    status: "imported"
+  youtube_publication_calendar_2026_2027:
+    path: "brand-os/06-content/youtube-publication-calendar-2026-2027.md"
+    csv_path: "brand-os/06-content/youtube-publication-calendar-2026-2027.csv"
+    status: "planned"
+  youtube_episode_speaking_plans_2026_2027:
+    path: "brand-os/06-content/youtube-episode-speaking-plans-2026-2027.md"
+    csv_path: "brand-os/06-content/youtube-episode-speaking-plans-2026-2027.csv"
+    status: "planned"
+  youtube_publication_plan_pdf_2026_2027:
+    path: "brand-os/06-content/print/youtube-publication-plan-2026-2027.pdf"
+    html_path: "brand-os/06-content/print/youtube-publication-plan-print.html"
+    status: "print_ready"
+  youtube_teleprompters_2026_2027:
+    path: "brand-os/06-content/youtube-teleprompters-2026-2027"
+    pdf_path: "brand-os/06-content/youtube-teleprompters-2026-2027/all-teleprompters-11pt.pdf"
+    html_path: "brand-os/06-content/youtube-teleprompters-2026-2027/all-teleprompters-11pt-print.html"
+    manifest_path: "brand-os/06-content/youtube-teleprompters-2026-2027/manifest.csv"
+    status: "scripted"
+  linkedin_profile_kit_2026:
+    path: "brand-os/06-content/linkedin-profile-kit-2026.md"
+    status: "ready_to_fill_profile"
+  linkedin_fill_instruction:
+    path: "brand-os/06-content/linkedin-fill-instruction.md"
+    profile_photo_path: "brand-os/07-assets/linkedin/linkedin-profile-photo.jpg"
+    banner_path: "brand-os/07-assets/linkedin/linkedin-banner-1584x396.png"
+    status: "step_by_step_ready"
+  dashboard:
+    path: "brand-os/dashboard/index.html"
+    status: "active"
+
+directions:
+  - id: "mvp-product-engineering"
+    title: "MVP и продуктовая инженерия"
+    status: "active_from_site"
+  - id: "ai-automation-agents"
+    title: "AI-автоматизация и агенты"
+    status: "active_from_site"
+  - id: "enterprise-fintech-systems"
+    title: "Корпоративные системы и финтех"
+    status: "active_from_site"
+  - id: "b2b-saas-integrations"
+    title: "B2B + SaaS интеграции"
+    status: "active_from_site"
+  - id: "office-as-a-service"
+    title: "Офис как сервис и физическая инфраструктура"
+    status: "active_from_site"
+  - id: "business-philosophy"
+    title: "Философия бизнеса и подкаст-рассуждения"
+    status: "active_from_site"
+
+data_rules:
+  source_priority:
+    - "Прямое сообщение Дмитрия в чате"
+    - "Локальные файлы в Brand OS"
+    - "Публичные каналы Дмитрия"
+    - "Внешние источники с явной ссылкой"
+  update_policy: "Каждое существенное изменение фиксируется в 09-operations/change-log.md."
+  uncertain_data_policy: "Если факт не подтвержден, он помечается как needs_validation."

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brand OS Dashboard — Дмитрий Ефремов</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Навигация">
+        <div class="brand-mark">
+          <span class="brand-dot"></span>
+          <div>
+            <strong>Brand OS</strong>
+            <small>Дмитрий Ефремов</small>
+          </div>
+        </div>
+        <nav class="nav-list">
+          <button class="nav-item active" data-view="overview" type="button">Обзор</button>
+          <button class="nav-item" data-view="calendar" type="button">YouTube</button>
+          <button class="nav-item" data-view="rubrics" type="button">Рубрики</button>
+          <button class="nav-item" data-view="knowledge" type="button">Философы</button>
+          <button class="nav-item" data-view="assets" type="button">Ассеты</button>
+          <button class="nav-item" data-view="commands" type="button">Команды</button>
+        </nav>
+        <div class="sidebar-note">
+          <span>Канон</span>
+          <strong>Брендбук импортирован</strong>
+          <a href="../02-brand/imported/brandbook_efremov_final.md">Открыть файл</a>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Управление личным брендом</p>
+            <h1>Пульт контента, знаний и публикаций</h1>
+          </div>
+          <div class="topbar-actions">
+            <label class="search-box">
+              <span>Поиск</span>
+              <input id="globalSearch" type="search" placeholder="философ, выпуск">
+            </label>
+          </div>
+        </header>
+
+        <section class="view active" id="overview">
+          <div class="stat-grid" id="stats"></div>
+
+          <div class="two-column">
+            <section class="panel">
+              <div class="panel-head">
+                <h2>Очередь выпусков</h2>
+                <button class="ghost-button" data-command="покажи ближайшие 5 выпусков YouTube-календаря">Спросить в чате</button>
+              </div>
+              <div class="episode-list" id="nextEpisodes"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <h2>Состояние системы</h2>
+              </div>
+              <div class="health-list">
+                <div class="health-row good">
+                  <span></span>
+                  <p><strong>Брендбук</strong> канонический файл подключен.</p>
+                </div>
+                <div class="health-row good">
+                  <span></span>
+                  <p><strong>YouTube-календарь</strong> 37 выпусков аналитической философии.</p>
+                </div>
+                <div class="health-row warn">
+                  <span></span>
+                  <p><strong>Права фото</strong> отмечены как `needs_validation` до утверждения.</p>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Быстрые входы</h2>
+            </div>
+            <div class="link-grid">
+              <a href="../06-content/youtube-publication-calendar-2026-2027.md">YouTube-календарь</a>
+              <a href="../06-content/youtube-teleprompters-2026-2027/README.md">YouTube-телесуфлеры</a>
+              <a href="../06-content/linkedin-fill-instruction.md">LinkedIn-инструкция</a>
+              <a href="../04-philosophy/analytic-tradition-index.md">Индекс философов</a>
+              <a href="../06-content/import-index.md">Импорт контента</a>
+              <a href="../07-assets/photos/photo-catalog.csv">Каталог фото</a>
+              <a href="../00-system/chat-commands.md">Команды чата</a>
+            </div>
+          </section>
+        </section>
+
+        <section class="view" id="calendar">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>YouTube-календарь</h2>
+                <p>37 выпусков аналитической философии.</p>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Рубрика</th>
+                    <th>Выпуск</th>
+                    <th>База</th>
+                    <th>Статус</th>
+                  </tr>
+                </thead>
+                <tbody id="calendarRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="rubrics">
+          <div class="panel rubric-panel">
+            <span class="rubric-badge blue">37 выпусков</span>
+            <h2>Как думают топ-аналитики</h2>
+            <p class="lead">Философская идея превращается в рабочую сцену, которую зритель уже пережил. В заголовке нет имени философа и нет термина; имя остается в описании видео.</p>
+            <ol class="structure-list">
+              <li>Узнаваемая сцена из бизнеса или аналитики.</li>
+              <li>Скрытая философская идея без академического названия.</li>
+              <li>Как топ-аналитик распознает ошибку мышления.</li>
+              <li>Практический прием для решения.</li>
+              <li>Философ и литература в описании видео.</li>
+            </ol>
+          </div>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Название рубрики</h2>
+            </div>
+            <div class="naming-grid">
+              <div>
+                <strong>Основное</strong>
+                <p>`Как думают топ-аналитики` продает навык мышления, а заголовок выпуска продает узнаваемую рабочую сцену.</p>
+              </div>
+              <div>
+                <strong>Связь с реальным опытом</strong>
+                <p>Философская идея должна быть спрятана в сцене, которую зритель уже проживал.</p>
+              </div>
+              <div>
+                <strong>Почему не старое</strong>
+                <p>Как мыслит бизнесмен, Бизнес как система, Философия бизнес-решений.</p>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="view" id="knowledge">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Философы</h2>
+                <p>37 выпусков рубрики `Как думают топ-аналитики`.</p>
+              </div>
+              <a class="ghost-link" href="../04-philosophy/analytic-tradition-index.md">Индекс</a>
+            </div>
+            <div class="tile-grid" id="philosopherTiles"></div>
+          </div>
+        </section>
+
+        <section class="view" id="assets">
+          <div class="two-column">
+            <section class="panel">
+              <div class="panel-head">
+                <h2>Визуальный сигнал</h2>
+              </div>
+              <img class="reference-image" src="../07-assets/imported/instagram_grid_references/grid_reference_04_imagegen_soft_strict.png" alt="Instagram grid reference">
+            </section>
+            <section class="panel">
+              <div class="panel-head">
+                <h2>Ассеты</h2>
+              </div>
+              <div class="asset-list">
+                <a href="../02-brand/imported/brandbook_efremov_final.md">Финальный брендбук</a>
+                <a href="../07-assets/imported/instagram_grid_references">Instagram grid references</a>
+                <a href="../07-assets/imported/dmitry_final_all_references_pack">Фото-референсы Дмитрия</a>
+                <a href="../07-assets/assets-catalog.csv">Каталог ассетов</a>
+                <a href="../07-assets/photos/photo-catalog.csv">Каталог фото</a>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="commands">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Команды для управления из чата</h2>
+                <p>Нажми, чтобы скопировать формулировку.</p>
+              </div>
+            </div>
+            <div class="command-grid" id="commandGrid"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Скопировано</div>
+    <script src="app.js"></script>
+  </body>
+</html>

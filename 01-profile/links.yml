@@ -1,0 +1,19 @@
+website:
+  title: "Дмитрий Ефремов"
+  url: "https://dmitryefremov.com/"
+  notes: "Основной публичный сайт."
+
+youtube:
+  title: "Dmitrii Efremov"
+  url: "https://www.youtube.com/@dmitrii.efremov"
+  notes: "Канал для видео и подкаст-рассуждений. Метрики нужно импортировать."
+
+instagram:
+  title: "dmitrii.eneik"
+  url: "https://www.instagram.com/dmitrii.eneik"
+  notes: "Канал для личного бренда, визуальных материалов и коротких мыслей. Метрики нужно импортировать."
+
+email:
+  value: "dmitrii.eneik@gmail.com"
+  notes: "Email указан на сайте."
+

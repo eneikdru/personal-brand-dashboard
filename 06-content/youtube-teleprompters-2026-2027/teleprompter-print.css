@@ -1,0 +1,47 @@
+@page { size: A4; margin: 17mm 18mm; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #111318;
+  font-family: Arial, "Segoe UI", sans-serif;
+  font-size: 11pt;
+  line-height: 1.38;
+}
+.tele-page {
+  min-height: 263mm;
+  break-after: page;
+  page-break-after: always;
+  padding: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #d7dde8;
+  color: #6b7280;
+  font-size: 9pt;
+  padding-bottom: 5mm;
+  margin-bottom: 7mm;
+}
+h1 {
+  margin: 0 0 3mm;
+  font-size: 16pt;
+  line-height: 1.18;
+  font-weight: 700;
+}
+.meta {
+  color: #3D5FA0;
+  font-size: 10pt;
+  margin: 0 0 7mm;
+}
+p {
+  margin: 0 0 4.2mm;
+  max-width: 170mm;
+}
+.note {
+  color: #6b7280;
+  border-top: 1px solid #e2e6ee;
+  padding-top: 3mm;
+  font-size: 10pt;
+}
+.episode-break { break-before: page; page-break-before: always; }
