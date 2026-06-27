@@ -132,12 +132,60 @@ async function testMissingToken() {
   }
 }
 
+async function testCreateWorkflowState() {
+  console.log("Running testCreateWorkflowState...");
+  global.fetch = async (url, options) => {
+    return {
+      json: async () => ({
+        data: {
+          workflowStateCreate: {
+            success: true,
+            workflowState: { id: "ws-1", name: "Backlog", type: "backlog" }
+          }
+        }
+      })
+    };
+  };
+  try {
+    const ws = await linearClient.createWorkflowState({ name: "Backlog", type: "backlog", teamId: "t1" });
+    assert.strictEqual(ws.name, "Backlog");
+    console.log("✅ testCreateWorkflowState passed!");
+  } finally {
+    global.fetch = originalFetch;
+  }
+}
+
+async function testCreateLabel() {
+  console.log("Running testCreateLabel...");
+  global.fetch = async (url, options) => {
+    return {
+      json: async () => ({
+        data: {
+          issueLabelCreate: {
+            success: true,
+            issueLabel: { id: "l-1", name: "bug", color: "#ff0000" }
+          }
+        }
+      })
+    };
+  };
+  try {
+    const label = await linearClient.createLabel({ name: "bug", color: "#ff0000" });
+    assert.strictEqual(label.name, "bug");
+    console.log("✅ testCreateLabel passed!");
+  } finally {
+    global.fetch = originalFetch;
+  }
+}
+
 async function runTests() {
   try {
     await testCreateIssue();
     await testMissingToken();
     await testGetWorkflowStates();
     await testGetLabels();
+    await testCreateWorkflowState();
+    await testCreateLabel();
     console.log("\nAll tests passed successfully!");
   } catch (error) {
     console.error("\n❌ Test failed:");

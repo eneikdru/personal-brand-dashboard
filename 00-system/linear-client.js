@@ -121,10 +121,60 @@ async function getLabels() {
   return data.issueLabels.nodes;
 }
 
+/**
+ * Creates a new workflow state
+ * @param {Object} input - WorkflowStateCreateInput (name, type, teamId, color, etc.)
+ */
+async function createWorkflowState(input) {
+  const mutation = `
+    mutation WorkflowStateCreate($input: WorkflowStateCreateInput!) {
+      workflowStateCreate(input: $input) {
+        success
+        workflowState {
+          id
+          name
+          type
+        }
+      }
+    }
+  `;
+  const data = await linearQuery(mutation, { input });
+  if (!data.workflowStateCreate.success) {
+    throw new Error("Failed to create workflow state");
+  }
+  return data.workflowStateCreate.workflowState;
+}
+
+/**
+ * Creates a new issue label
+ * @param {Object} input - IssueLabelCreateInput (name, color, teamId, etc.)
+ */
+async function createLabel(input) {
+  const mutation = `
+    mutation IssueLabelCreate($input: IssueLabelCreateInput!) {
+      issueLabelCreate(input: $input) {
+        success
+        issueLabel {
+          id
+          name
+          color
+        }
+      }
+    }
+  `;
+  const data = await linearQuery(mutation, { input });
+  if (!data.issueLabelCreate.success) {
+    throw new Error("Failed to create issue label");
+  }
+  return data.issueLabelCreate.issueLabel;
+}
+
 module.exports = {
   createIssue,
   getTeams,
   getWorkflowStates,
   getLabels,
+  createWorkflowState,
+  createLabel,
   linearQuery
 };
