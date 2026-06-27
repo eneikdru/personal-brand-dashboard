@@ -40,7 +40,7 @@ async function main() {
         });
         console.log(`✅ Created State: ${state.name} (${state.id})`);
       } catch (err) {
-        if (err.message.includes("already exists")) {
+        if (err.message.toLowerCase().includes("duplicate") || err.message.toLowerCase().includes("already exists")) {
           console.log(`⚠️ State '${stateData.name}' already exists (API reported). Skipping.`);
         } else {
           throw err;
@@ -71,7 +71,7 @@ async function main() {
         });
         console.log(`✅ Created Label: ${label.name} (${label.id})`);
       } catch (err) {
-        if (err.message.includes("already exists")) {
+        if (err.message.toLowerCase().includes("duplicate") || err.message.toLowerCase().includes("already exists")) {
           console.log(`⚠️ Label '${labelData.name}' already exists (API reported). Skipping.`);
         } else {
           throw err;
