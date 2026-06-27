@@ -1,0 +1,21 @@
+name: Initialize Linear EMS Tracker
+
+on:
+  workflow_dispatch: # Allows manual trigger from the Actions tab
+
+jobs:
+  initialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Initialize EMS Tracker
+        env:
+          Brandagent: ${{ secrets.Brandagent }}
+        run: node 00-system/initialize-ems-tracker.js
