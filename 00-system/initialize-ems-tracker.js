@@ -3,13 +3,7 @@
  * Deploys the Linear workspace infrastructure from scratch
  */
 
-const {
-  getTeams,
-  getWorkflowStates,
-  getLabels,
-  createWorkflowState,
-  createLabel
-} = require("./linear-client");
+const { getTeams, getWorkflowStates, getLabels, createWorkflowState, createLabel } = require("./linear-client");
 
 async function main() {
   console.log("🚀 Initializing EMS Tracker infrastructure...");
@@ -21,17 +15,18 @@ async function main() {
       throw new Error("No teams found in the Linear workspace.");
     }
 
-    // Prioritize 'Eneikdru' team if it exists
+    // Prioritize "Eneikdru" team
     const team = teams.find(t => t.name === "Eneikdru") || teams[0];
     const teamId = team.id;
-    console.log(`Found Team: ${team.name} (${teamId})`);
+    console.log(`Using Team: ${team.name} (${teamId})`);
+    if (teams.length > 1) {
+      console.log(`Available teams: ${teams.map(t => t.name).join(", ")}`);
+    }
 
-    // 2. Fetch Existing States and Labels
+    // 2. Create Workflow States
+    console.log("Checking existing workflow states...");
     const existingStates = await getWorkflowStates(teamId);
-    const existingLabels = await getLabels();
-
-    // 3. Create Workflow States
-    console.log("Checking workflow states...");
+    console.log(`Current states: ${existingStates.map(s => s.name).join(", ")}`);
 
     const statesToCreate = [
       { name: "Customer Wishes", type: "backlog", color: "#f2c94c" },
@@ -39,28 +34,33 @@ async function main() {
     ];
 
     for (const stateData of statesToCreate) {
-      const existing = existingStates.find(s => s.name === stateData.name);
-      if (existing) {
-        console.log(`ℹ️ State already exists: ${stateData.name} (${existing.id})`);
-      } else {
-        try {
-          const newState = await createWorkflowState({
-            ...stateData,
-            teamId
-          });
-          console.log(`✅ Created State: ${newState.name} (${newState.id})`);
-        } catch (error) {
-          if (error.message.toLowerCase().includes("duplicate") || error.message.toLowerCase().includes("already exists")) {
-            console.log(`ℹ️ State ${stateData.name} reported as duplicate by API, skipping.`);
-          } else {
-            throw error;
-          }
+      const match = existingStates.find(s => s.name.toLowerCase() === stateData.name.toLowerCase());
+      if (match) {
+        console.log(`⚠️ State '${stateData.name}' already exists as '${match.name}'. Skipping.`);
+        continue;
+      }
+      try {
+        console.log(`Attempting to create state: ${stateData.name}...`);
+        const state = await createWorkflowState({
+          name: stateData.name,
+          type: stateData.type,
+          teamId,
+          color: stateData.color
+        });
+        console.log(`✅ Created State: ${state.name} (${state.id})`);
+      } catch (err) {
+        if (err.message.toLowerCase().includes("duplicate") || err.message.toLowerCase().includes("already exists")) {
+          console.log(`⚠️ State '${stateData.name}' already exists (API reported duplicate). Skipping.`);
+        } else {
+          throw err;
         }
       }
     }
 
-    // 4. Create Labels
-    console.log("Checking agent labels...");
+    // 3. Create Labels
+    console.log("Checking existing labels...");
+    const existingLabels = await getLabels();
+    console.log(`Current labels: ${existingLabels.map(l => l.name).join(", ")}`);
 
     const labelsToCreate = [
       { name: "#agent-backend", color: "#27ae60" },
@@ -69,22 +69,24 @@ async function main() {
     ];
 
     for (const labelData of labelsToCreate) {
-      const existing = existingLabels.find(l => l.name === labelData.name);
-      if (existing) {
-        console.log(`ℹ️ Label already exists: ${labelData.name} (${existing.id})`);
-      } else {
-        try {
-          const newLabel = await createLabel({
-            ...labelData,
-            teamId
-          });
-          console.log(`✅ Created Label: ${newLabel.name} (${newLabel.id})`);
-        } catch (error) {
-          if (error.message.toLowerCase().includes("duplicate") || error.message.toLowerCase().includes("already exists")) {
-            console.log(`ℹ️ Label ${labelData.name} reported as duplicate by API, skipping.`);
-          } else {
-            throw error;
-          }
+      const match = existingLabels.find(l => l.name.toLowerCase() === labelData.name.toLowerCase());
+      if (match) {
+        console.log(`⚠️ Label '${labelData.name}' already exists as '${match.name}'. Skipping.`);
+        continue;
+      }
+      try {
+        console.log(`Attempting to create label: ${labelData.name}...`);
+        const label = await createLabel({
+          name: labelData.name,
+          color: labelData.color,
+          teamId
+        });
+        console.log(`✅ Created Label: ${label.name} (${label.id})`);
+      } catch (err) {
+        if (err.message.toLowerCase().includes("duplicate") || err.message.toLowerCase().includes("already exists")) {
+          console.log(`⚠️ Label '${labelData.name}' already exists (API reported duplicate). Skipping.`);
+        } else {
+          throw err;
         }
       }
     }
@@ -93,18 +95,14 @@ async function main() {
     console.log("The workspace is now structured according to Lean/Six Sigma/TOC laws.");
 
   } catch (error) {
-    if (error.message.includes("Authentication required") || error.message.includes("Brandagent")) {
+    if (error.message.includes("Authentication required") || error.message.includes("BRANDAGENT")) {
       console.error("\n❌ Initialization Failed: Authentication Error.");
-      console.error("Please ensure the 'Brandagent' environment variable is set with a valid Linear API token.");
+      console.error("Please ensure the 'BRANDAGENT' environment variable is set with a valid Linear API token.");
     } else {
       console.error("\n❌ Error during initialization:", error.message);
     }
-    throw error;
+    process.exit(1);
   }
 }
 
-if (require.main === module) {
-  main().catch(() => process.exit(1));
-}
-
-module.exports = { main };
+main();
