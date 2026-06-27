@@ -19,25 +19,35 @@ async function main() {
 
     // 2. Create Workflow States
     console.log("Creating workflow states...");
+    const existingStates = await getWorkflowStates(teamId);
 
-    const wishesState = await createWorkflowState({
-      name: "Customer Wishes",
-      type: "backlog",
-      teamId,
-      color: "#f2c94c" // Yellow
-    });
-    console.log(`✅ Created State: ${wishesState.name} (${wishesState.id})`);
+    if (existingStates.find(s => s.name === "Customer Wishes")) {
+      console.log("⚠️ State 'Customer Wishes' already exists. Skipping.");
+    } else {
+      const wishesState = await createWorkflowState({
+        name: "Customer Wishes",
+        type: "backlog",
+        teamId,
+        color: "#f2c94c" // Yellow
+      });
+      console.log(`✅ Created State: ${wishesState.name} (${wishesState.id})`);
+    }
 
-    const todoState = await createWorkflowState({
-      name: "Todo: AI-Agents",
-      type: "unstarted",
-      teamId,
-      color: "#56ccf2" // Blue
-    });
-    console.log(`✅ Created State: ${todoState.name} (${todoState.id})`);
+    if (existingStates.find(s => s.name === "Todo: AI-Agents")) {
+      console.log("⚠️ State 'Todo: AI-Agents' already exists. Skipping.");
+    } else {
+      const todoState = await createWorkflowState({
+        name: "Todo: AI-Agents",
+        type: "unstarted",
+        teamId,
+        color: "#56ccf2" // Blue
+      });
+      console.log(`✅ Created State: ${todoState.name} (${todoState.id})`);
+    }
 
     // 3. Create Labels
     console.log("Creating agent labels...");
+    const existingLabels = await getLabels();
 
     const labels = [
       { name: "#agent-backend", color: "#27ae60" },
@@ -46,6 +56,10 @@ async function main() {
     ];
 
     for (const labelData of labels) {
+      if (existingLabels.find(l => l.name === labelData.name)) {
+        console.log(`⚠️ Label '${labelData.name}' already exists. Skipping.`);
+        continue;
+      }
       const label = await createLabel({
         name: labelData.name,
         color: labelData.color,

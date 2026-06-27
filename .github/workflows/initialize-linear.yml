@@ -19,3 +19,8 @@ jobs:
         env:
           BRANDAGENT: ${{ secrets.Brandagent }}
         run: node 00-system/initialize-ems-tracker.js
+
+      - name: Deploy Philosopher Carousel Tasks
+        env:
+          BRANDAGENT: ${{ secrets.Brandagent }}
+        run: node 00-system/deploy-philosopher-tasks.js
