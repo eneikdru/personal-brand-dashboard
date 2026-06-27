@@ -80,8 +80,51 @@ async function getTeams() {
   return data.teams.nodes;
 }
 
+/**
+ * Fetches workflow states for a team
+ * @param {string} teamId
+ */
+async function getWorkflowStates(teamId) {
+  const query = `
+    query WorkflowStates($teamId: String!) {
+      team(id: $teamId) {
+        states {
+          nodes {
+            id
+            name
+            type
+          }
+        }
+      }
+    }
+  `;
+  const data = await linearQuery(query, { teamId });
+  return data.team.states.nodes;
+}
+
+/**
+ * Fetches labels
+ */
+async function getLabels() {
+  const query = `
+    query {
+      issueLabels {
+        nodes {
+          id
+          name
+          color
+        }
+      }
+    }
+  `;
+  const data = await linearQuery(query);
+  return data.issueLabels.nodes;
+}
+
 module.exports = {
   createIssue,
   getTeams,
+  getWorkflowStates,
+  getLabels,
   linearQuery
 };

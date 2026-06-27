@@ -21,6 +21,8 @@ async function testCreateIssue() {
     assert.strictEqual(options.method, "POST");
     assert.strictEqual(options.headers["Authorization"], "mock-token");
     assert.strictEqual(body.variables.input.title, "Test Title");
+    assert.deepStrictEqual(body.variables.input.labelIds, ["label-1"]);
+    assert.strictEqual(body.variables.input.stateId, "state-1");
 
     return {
       json: async () => ({
@@ -42,10 +44,73 @@ async function testCreateIssue() {
   process.env.Brandagent = "mock-token";
 
   try {
-    const issue = await linearClient.createIssue({ title: "Test Title", description: "Test Desc" });
+    const issue = await linearClient.createIssue({
+      title: "Test Title",
+      description: "Test Desc",
+      labelIds: ["label-1"],
+      stateId: "state-1"
+    });
     assert.strictEqual(issue.identifier, "TST-1");
     assert.strictEqual(issue.title, "Test Title");
     console.log("✅ testCreateIssue passed!");
+  } finally {
+    global.fetch = originalFetch;
+  }
+}
+
+async function testGetWorkflowStates() {
+  console.log("Running testGetWorkflowStates...");
+
+  global.fetch = async (url, options) => {
+    return {
+      json: async () => ({
+        data: {
+          team: {
+            states: {
+              nodes: [
+                { id: "s1", name: "Todo", type: "todo" },
+                { id: "s2", name: "In Progress", type: "started" }
+              ]
+            }
+          }
+        }
+      })
+    };
+  };
+
+  try {
+    const states = await linearClient.getWorkflowStates("team-1");
+    assert.strictEqual(states.length, 2);
+    assert.strictEqual(states[0].name, "Todo");
+    console.log("✅ testGetWorkflowStates passed!");
+  } finally {
+    global.fetch = originalFetch;
+  }
+}
+
+async function testGetLabels() {
+  console.log("Running testGetLabels...");
+
+  global.fetch = async (url, options) => {
+    return {
+      json: async () => ({
+        data: {
+          issueLabels: {
+            nodes: [
+              { id: "l1", name: "bug" },
+              { id: "l2", name: "feature" }
+            ]
+          }
+        }
+      })
+    };
+  };
+
+  try {
+    const labels = await linearClient.getLabels();
+    assert.strictEqual(labels.length, 2);
+    assert.strictEqual(labels[0].name, "bug");
+    console.log("✅ testGetLabels passed!");
   } finally {
     global.fetch = originalFetch;
   }
@@ -71,6 +136,8 @@ async function runTests() {
   try {
     await testCreateIssue();
     await testMissingToken();
+    await testGetWorkflowStates();
+    await testGetLabels();
     console.log("\nAll tests passed successfully!");
   } catch (error) {
     console.error("\n❌ Test failed:");
