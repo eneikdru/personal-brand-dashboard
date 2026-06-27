@@ -29,3 +29,4 @@
 - **Linear Integration:** Implemented `linear-client.js` and a CLI utility `create-linear-issue.js` for task management.
 - **Security:** Configured Linear integration to use the `Brandagent` environment variable for authentication.
 - **Testing:** Added a test suite `test-linear-client.js` with mock-based verification for the Linear API.
+- **CI/CD:** Created GitHub Actions workflow `deploy.yml` for automated deployment of the dashboard to GitHub Pages on every push to `main`.
