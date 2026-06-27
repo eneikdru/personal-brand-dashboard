@@ -101,8 +101,16 @@ async function main() {
     } else {
       console.error("\n❌ Error during initialization:", error.message);
     }
-    process.exit(1);
+    if (require.main === module) {
+      process.exit(1);
+    } else {
+      throw error;
+    }
   }
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { main };

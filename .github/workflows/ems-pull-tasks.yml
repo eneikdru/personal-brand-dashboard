@@ -1,0 +1,23 @@
+name: EMS Value Stream Director (Pull Tasks)
+
+on:
+  workflow_dispatch: # Manual trigger to "pull" work
+  schedule:
+    - cron: '0 9 * * 2' # Every Tuesday at 9:00 AM (The Tuesday Rhythm)
+
+jobs:
+  pull-tasks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Activate Lean Pull System
+        env:
+          BRANDAGENT: ${{ secrets.Brandagent }}
+        run: node 00-system/ems-value-stream-director.js
