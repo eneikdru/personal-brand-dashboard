@@ -1,15 +1,15 @@
 /**
  * Linear API Client
- * Uses process.env.Brandagent for authentication
+ * Uses process.env.BRANDAGENT for authentication
  */
 
 const LINEAR_API_URL = "https://api.linear.app/graphql";
 
 async function linearQuery(query, variables = {}) {
-  const token = process.env.Brandagent;
+  const token = process.env.BRANDAGENT;
 
   if (!token) {
-    throw new Error("Environment variable 'Brandagent' is not set. Please provide your Linear API token.");
+    throw new Error("Environment variable 'BRANDAGENT' is not set. Please provide your Linear API token.");
   }
 
   const response = await fetch(LINEAR_API_URL, {

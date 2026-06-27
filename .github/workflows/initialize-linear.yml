@@ -17,5 +17,5 @@ jobs:
 
       - name: Initialize EMS Tracker
         env:
-          Brandagent: ${{ secrets.Brandagent }}
+          BRANDAGENT: ${{ secrets.Brandagent }}
         run: node 00-system/initialize-ems-tracker.js

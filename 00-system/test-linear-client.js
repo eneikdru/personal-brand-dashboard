@@ -41,7 +41,7 @@ async function testCreateIssue() {
     };
   };
 
-  process.env.Brandagent = "mock-token";
+  process.env.BRANDAGENT = "mock-token";
 
   try {
     const issue = await linearClient.createIssue({
@@ -118,17 +118,17 @@ async function testGetLabels() {
 
 async function testMissingToken() {
   console.log("Running testMissingToken...");
-  const oldToken = process.env.Brandagent;
-  delete process.env.Brandagent;
+  const oldToken = process.env.BRANDAGENT;
+  delete process.env.BRANDAGENT;
 
   try {
     await linearClient.createIssue({ title: "Fail" });
     assert.fail("Should have thrown error due to missing token");
   } catch (error) {
-    assert.ok(error.message.includes("Brandagent"), "Error should mention Brandagent variable");
+    assert.ok(error.message.includes("BRANDAGENT"), "Error should mention BRANDAGENT variable");
     console.log("✅ testMissingToken passed!");
   } finally {
-    process.env.Brandagent = oldToken;
+    process.env.BRANDAGENT = oldToken;
   }
 }
 

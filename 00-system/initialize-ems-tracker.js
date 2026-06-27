@@ -58,9 +58,9 @@ async function main() {
     console.log("The workspace is now structured according to Lean/Six Sigma/TOC laws.");
 
   } catch (error) {
-    if (error.message.includes("Authentication required") || error.message.includes("Brandagent")) {
+    if (error.message.includes("Authentication required") || error.message.includes("BRANDAGENT")) {
       console.error("\n❌ Initialization Failed: Authentication Error.");
-      console.error("Please ensure the 'Brandagent' environment variable is set with a valid Linear API token.");
+      console.error("Please ensure the 'BRANDAGENT' environment variable is set with a valid Linear API token.");
     } else {
       console.error("\n❌ Error during initialization:", error.message);
     }
