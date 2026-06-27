@@ -15,6 +15,11 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Linear Workspace Audit
+        env:
+          BRANDAGENT: ${{ secrets.Brandagent }}
+        run: node 00-system/linear-audit.js
+
       - name: Initialize EMS Tracker
         env:
           BRANDAGENT: ${{ secrets.Brandagent }}
