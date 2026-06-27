@@ -3,7 +3,13 @@
  * Deploys the Linear workspace infrastructure from scratch
  */
 
-const { getTeams, createWorkflowState, createLabel } = require("./linear-client");
+const {
+  getTeams,
+  getWorkflowStates,
+  getLabels,
+  createWorkflowState,
+  createLabel
+} = require("./linear-client");
 
 async function main() {
   console.log("🚀 Initializing EMS Tracker infrastructure...");
@@ -14,44 +20,73 @@ async function main() {
     if (teams.length === 0) {
       throw new Error("No teams found in the Linear workspace.");
     }
-    const teamId = teams[0].id;
-    console.log(`Found Team: ${teams[0].name} (${teamId})`);
 
-    // 2. Create Workflow States
-    console.log("Creating workflow states...");
+    // Prioritize 'Eneikdru' team if it exists
+    const team = teams.find(t => t.name === "Eneikdru") || teams[0];
+    const teamId = team.id;
+    console.log(`Found Team: ${team.name} (${teamId})`);
 
-    const wishesState = await createWorkflowState({
-      name: "Customer Wishes",
-      type: "backlog",
-      teamId,
-      color: "#f2c94c" // Yellow
-    });
-    console.log(`✅ Created State: ${wishesState.name} (${wishesState.id})`);
+    // 2. Fetch Existing States and Labels
+    const existingStates = await getWorkflowStates(teamId);
+    const existingLabels = await getLabels();
 
-    const todoState = await createWorkflowState({
-      name: "Todo: AI-Agents",
-      type: "unstarted",
-      teamId,
-      color: "#56ccf2" // Blue
-    });
-    console.log(`✅ Created State: ${todoState.name} (${todoState.id})`);
+    // 3. Create Workflow States
+    console.log("Checking workflow states...");
 
-    // 3. Create Labels
-    console.log("Creating agent labels...");
+    const statesToCreate = [
+      { name: "Customer Wishes", type: "backlog", color: "#f2c94c" },
+      { name: "Todo: AI-Agents", type: "unstarted", color: "#56ccf2" }
+    ];
 
-    const labels = [
+    for (const stateData of statesToCreate) {
+      const existing = existingStates.find(s => s.name === stateData.name);
+      if (existing) {
+        console.log(`ℹ️ State already exists: ${stateData.name} (${existing.id})`);
+      } else {
+        try {
+          const newState = await createWorkflowState({
+            ...stateData,
+            teamId
+          });
+          console.log(`✅ Created State: ${newState.name} (${newState.id})`);
+        } catch (error) {
+          if (error.message.toLowerCase().includes("duplicate") || error.message.toLowerCase().includes("already exists")) {
+            console.log(`ℹ️ State ${stateData.name} reported as duplicate by API, skipping.`);
+          } else {
+            throw error;
+          }
+        }
+      }
+    }
+
+    // 4. Create Labels
+    console.log("Checking agent labels...");
+
+    const labelsToCreate = [
       { name: "#agent-backend", color: "#27ae60" },
       { name: "#agent-frontend", color: "#2f80ed" },
       { name: "#agent-philosophy", color: "#9b51e0" }
     ];
 
-    for (const labelData of labels) {
-      const label = await createLabel({
-        name: labelData.name,
-        color: labelData.color,
-        teamId
-      });
-      console.log(`✅ Created Label: ${label.name} (${label.id})`);
+    for (const labelData of labelsToCreate) {
+      const existing = existingLabels.find(l => l.name === labelData.name);
+      if (existing) {
+        console.log(`ℹ️ Label already exists: ${labelData.name} (${existing.id})`);
+      } else {
+        try {
+          const newLabel = await createLabel({
+            ...labelData,
+            teamId
+          });
+          console.log(`✅ Created Label: ${newLabel.name} (${newLabel.id})`);
+        } catch (error) {
+          if (error.message.toLowerCase().includes("duplicate") || error.message.toLowerCase().includes("already exists")) {
+            console.log(`ℹ️ Label ${labelData.name} reported as duplicate by API, skipping.`);
+          } else {
+            throw error;
+          }
+        }
+      }
     }
 
     console.log("\n✨ EMS Tracker initialization complete!");
@@ -64,8 +99,12 @@ async function main() {
     } else {
       console.error("\n❌ Error during initialization:", error.message);
     }
-    process.exit(1);
+    throw error;
   }
 }
 
-main();
+if (require.main === module) {
+  main().catch(() => process.exit(1));
+}
+
+module.exports = { main };
