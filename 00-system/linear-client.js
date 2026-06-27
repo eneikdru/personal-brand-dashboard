@@ -103,6 +103,65 @@ async function getWorkflowStates(teamId) {
 }
 
 /**
+ * Fetches active cycles for a team
+ * @param {string} teamId
+ */
+async function getCycles(teamId) {
+  const query = `
+    query Cycles($teamId: String!) {
+      team(id: $teamId) {
+        cycles(filter: { completedAt: { null: true } }) {
+          nodes {
+            id
+            number
+            startsAt
+            endsAt
+            progress
+          }
+        }
+      }
+    }
+  `;
+  const data = await linearQuery(query, { teamId });
+  return data.team.cycles.nodes;
+}
+
+/**
+ * Fetches issues for a team with optional state filter
+ * @param {string} teamId
+ * @param {string} stateId
+ */
+async function getIssues(teamId, stateId = null) {
+  let filter = `team: { id: { eq: $teamId } }`;
+  if (stateId) {
+    filter += `, state: { id: { eq: $stateId } }`;
+  }
+
+  const query = `
+    query Issues($teamId: String!, $stateId: String) {
+      issues(filter: { ${filter} }) {
+        nodes {
+          id
+          title
+          state {
+            id
+            name
+          }
+          labels {
+            nodes {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+  `;
+  const data = await linearQuery(query, { teamId, stateId });
+  return data.issues.nodes;
+}
+
+/**
  * Fetches labels
  */
 async function getLabels() {
@@ -174,6 +233,8 @@ module.exports = {
   getTeams,
   getWorkflowStates,
   getLabels,
+  getCycles,
+  getIssues,
   createWorkflowState,
   createLabel,
   linearQuery
