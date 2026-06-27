@@ -14,12 +14,19 @@ async function main() {
     if (teams.length === 0) {
       throw new Error("No teams found in the Linear workspace.");
     }
-    const teamId = teams[0].id;
-    console.log(`Found Team: ${teams[0].name} (${teamId})`);
+
+    // Prioritize "Eneikdru" team
+    const team = teams.find(t => t.name === "Eneikdru") || teams[0];
+    const teamId = team.id;
+    console.log(`Using Team: ${team.name} (${teamId})`);
+    if (teams.length > 1) {
+      console.log(`Available teams: ${teams.map(t => t.name).join(", ")}`);
+    }
 
     // 2. Create Workflow States
-    console.log("Creating workflow states...");
+    console.log("Checking existing workflow states...");
     const existingStates = await getWorkflowStates(teamId);
+    console.log(`Current states: ${existingStates.map(s => s.name).join(", ")}`);
 
     const statesToCreate = [
       { name: "Customer Wishes", type: "backlog", color: "#f2c94c" },
@@ -27,11 +34,13 @@ async function main() {
     ];
 
     for (const stateData of statesToCreate) {
-      if (existingStates.find(s => s.name === stateData.name)) {
-        console.log(`⚠️ State '${stateData.name}' already exists. Skipping.`);
+      const match = existingStates.find(s => s.name.toLowerCase() === stateData.name.toLowerCase());
+      if (match) {
+        console.log(`⚠️ State '${stateData.name}' already exists as '${match.name}'. Skipping.`);
         continue;
       }
       try {
+        console.log(`Attempting to create state: ${stateData.name}...`);
         const state = await createWorkflowState({
           name: stateData.name,
           type: stateData.type,
@@ -41,7 +50,7 @@ async function main() {
         console.log(`✅ Created State: ${state.name} (${state.id})`);
       } catch (err) {
         if (err.message.toLowerCase().includes("duplicate") || err.message.toLowerCase().includes("already exists")) {
-          console.log(`⚠️ State '${stateData.name}' already exists (API reported). Skipping.`);
+          console.log(`⚠️ State '${stateData.name}' already exists (API reported duplicate). Skipping.`);
         } else {
           throw err;
         }
@@ -49,21 +58,24 @@ async function main() {
     }
 
     // 3. Create Labels
-    console.log("Creating agent labels...");
+    console.log("Checking existing labels...");
     const existingLabels = await getLabels();
+    console.log(`Current labels: ${existingLabels.map(l => l.name).join(", ")}`);
 
-    const labels = [
+    const labelsToCreate = [
       { name: "#agent-backend", color: "#27ae60" },
       { name: "#agent-frontend", color: "#2f80ed" },
       { name: "#agent-philosophy", color: "#9b51e0" }
     ];
 
-    for (const labelData of labels) {
-      if (existingLabels.find(l => l.name === labelData.name)) {
-        console.log(`⚠️ Label '${labelData.name}' already exists. Skipping.`);
+    for (const labelData of labelsToCreate) {
+      const match = existingLabels.find(l => l.name.toLowerCase() === labelData.name.toLowerCase());
+      if (match) {
+        console.log(`⚠️ Label '${labelData.name}' already exists as '${match.name}'. Skipping.`);
         continue;
       }
       try {
+        console.log(`Attempting to create label: ${labelData.name}...`);
         const label = await createLabel({
           name: labelData.name,
           color: labelData.color,
@@ -72,7 +84,7 @@ async function main() {
         console.log(`✅ Created Label: ${label.name} (${label.id})`);
       } catch (err) {
         if (err.message.toLowerCase().includes("duplicate") || err.message.toLowerCase().includes("already exists")) {
-          console.log(`⚠️ Label '${labelData.name}' already exists (API reported). Skipping.`);
+          console.log(`⚠️ Label '${labelData.name}' already exists (API reported duplicate). Skipping.`);
         } else {
           throw err;
         }
