@@ -18,3 +18,15 @@
 - Rewrote YouTube teleprompters voice: removed robotic framework phrases and rebuilt all 51 scripts/PDF in a more spoken, dry camera style.
 - Created complete LinkedIn profile kit: copy-paste fields, About, Headline, Experience, Services, Featured, Skills, Projects, settings checklist and visibility rules.
 - Created operational LinkedIn fill instruction and ready assets: exact profile photo, exact banner, field-by-field values without strategic commentary.
+
+## 2026-06-07 (Pivot to Business Philosophy & Linear Integration)
+
+- **Brand Pivot:** Transitioned the brand core from analyst interview preparation to "Business Philosophy" based on the analytic philosophy tradition.
+- **Content Expansion:** Updated the philosopher index and YouTube series to 50 episodes, featuring key analytic philosophers (Frege, Russell, Wittgenstein, etc.).
+- **Schedule Update:** Synchronized the publication calendar for a weekly Tuesday rhythm (50 episodes).
+- **Automation:** Overhauled `rebuild-youtube-content.js` and created `update-dashboard-data.js` to automate dashboard data synchronization.
+- **Dashboard UI:** Updated the "Brand OS" dashboard to reflect the new 50-episode dataset and status tracking (released vs. planned).
+- **Linear Integration:** Implemented `linear-client.js` and a CLI utility `create-linear-issue.js` for task management.
+- **Security:** Configured Linear integration to use the `Brandagent` environment variable for authentication.
+- **Testing:** Added a test suite `test-linear-client.js` with mock-based verification for the Linear API.
+- **CI/CD:** Created GitHub Actions workflow `deploy.yml` for automated deployment of the dashboard to GitHub Pages on every push to `main`.
