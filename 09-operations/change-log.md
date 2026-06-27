@@ -38,3 +38,13 @@
 - **Tooling:** Enhanced `linear-client.js` and `create-linear-issue.js` with metadata support (labels, states) to enable automated task distribution.
 - **Task Decomposition:** Decomposed the "Philosopher Carousel" requirement into 3 atomic tasks (Data, UI, Logic) for execution agents.
 - **Task Recording:** Documented the decomposition and Linear CLI commands in `09-operations/tasks/2026-06-07-philosopher-carousel-decomposition.md`.
+
+## 2026-06-07 (EMS Lean Pull System Deployment)
+
+- **Systemic Amendment:** Re-architected the Brand OS into a strict Lean Pull System (EMS Core).
+- **Idempotency Fix:** Patched `initialize-ems-tracker.js` to handle duplicate workflow states and labels gracefully, allowing for infinite re-runs.
+- **WIP Limits:** Implemented `ems-value-stream-director.js` with a hard WIP limit of 3 active tasks in the "In Progress" column.
+- **JTBD Slicing:** Automated task decomposition using the "Jobs-To-Be-Done" framework to eliminate technical waste.
+- **Automation:** Created `.github/workflows/ems-pull-tasks.yml` to automate the Pull system on a weekly "Tuesday Rhythm" schedule.
+- **Verification:** Developed `simulate-ems-ops.js` to verify full system operations (Initialization, Audit, Pull, WIP Enforcement) in mock environments.
+- **Quality Control:** Introduced `dmaic-monitor.js` for Six Sigma defect monitoring and Root Cause Analysis (RCA).
