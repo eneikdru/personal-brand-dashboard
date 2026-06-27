@@ -3,7 +3,7 @@
  * Deploys the Linear workspace infrastructure from scratch
  */
 
-const { getTeams, createWorkflowState, createLabel } = require("./linear-client");
+const { getTeams, getWorkflowStates, getLabels, createWorkflowState, createLabel } = require("./linear-client");
 
 async function main() {
   console.log("🚀 Initializing EMS Tracker infrastructure...");
@@ -21,28 +21,31 @@ async function main() {
     console.log("Creating workflow states...");
     const existingStates = await getWorkflowStates(teamId);
 
-    if (existingStates.find(s => s.name === "Customer Wishes")) {
-      console.log("⚠️ State 'Customer Wishes' already exists. Skipping.");
-    } else {
-      const wishesState = await createWorkflowState({
-        name: "Customer Wishes",
-        type: "backlog",
-        teamId,
-        color: "#f2c94c" // Yellow
-      });
-      console.log(`✅ Created State: ${wishesState.name} (${wishesState.id})`);
-    }
+    const statesToCreate = [
+      { name: "Customer Wishes", type: "backlog", color: "#f2c94c" },
+      { name: "Todo: AI-Agents", type: "unstarted", color: "#56ccf2" }
+    ];
 
-    if (existingStates.find(s => s.name === "Todo: AI-Agents")) {
-      console.log("⚠️ State 'Todo: AI-Agents' already exists. Skipping.");
-    } else {
-      const todoState = await createWorkflowState({
-        name: "Todo: AI-Agents",
-        type: "unstarted",
-        teamId,
-        color: "#56ccf2" // Blue
-      });
-      console.log(`✅ Created State: ${todoState.name} (${todoState.id})`);
+    for (const stateData of statesToCreate) {
+      if (existingStates.find(s => s.name === stateData.name)) {
+        console.log(`⚠️ State '${stateData.name}' already exists. Skipping.`);
+        continue;
+      }
+      try {
+        const state = await createWorkflowState({
+          name: stateData.name,
+          type: stateData.type,
+          teamId,
+          color: stateData.color
+        });
+        console.log(`✅ Created State: ${state.name} (${state.id})`);
+      } catch (err) {
+        if (err.message.includes("already exists")) {
+          console.log(`⚠️ State '${stateData.name}' already exists (API reported). Skipping.`);
+        } else {
+          throw err;
+        }
+      }
     }
 
     // 3. Create Labels
@@ -60,12 +63,20 @@ async function main() {
         console.log(`⚠️ Label '${labelData.name}' already exists. Skipping.`);
         continue;
       }
-      const label = await createLabel({
-        name: labelData.name,
-        color: labelData.color,
-        teamId
-      });
-      console.log(`✅ Created Label: ${label.name} (${label.id})`);
+      try {
+        const label = await createLabel({
+          name: labelData.name,
+          color: labelData.color,
+          teamId
+        });
+        console.log(`✅ Created Label: ${label.name} (${label.id})`);
+      } catch (err) {
+        if (err.message.includes("already exists")) {
+          console.log(`⚠️ Label '${labelData.name}' already exists (API reported). Skipping.`);
+        } else {
+          throw err;
+        }
+      }
     }
 
     console.log("\n✨ EMS Tracker initialization complete!");
