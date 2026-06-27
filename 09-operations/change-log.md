@@ -30,3 +30,11 @@
 - **Security:** Configured Linear integration to use the `Brandagent` environment variable for authentication.
 - **Testing:** Added a test suite `test-linear-client.js` with mock-based verification for the Linear API.
 - **CI/CD:** Created GitHub Actions workflow `deploy.yml` for automated deployment of the dashboard to GitHub Pages on every push to `main`.
+
+## 2026-06-07 (EMS Architecture Alignment)
+
+- **Architecture:** Formally established the EMS Super Architect role and operating protocol.
+- **Documentation:** Created `09-operations/EMS-architecture-guide.md` to record strategic pivot and workflow laws.
+- **Tooling:** Enhanced `linear-client.js` and `create-linear-issue.js` with metadata support (labels, states) to enable automated task distribution.
+- **Task Decomposition:** Decomposed the "Philosopher Carousel" requirement into 3 atomic tasks (Data, UI, Logic) for execution agents.
+- **Task Recording:** Documented the decomposition and Linear CLI commands in `09-operations/tasks/2026-06-07-philosopher-carousel-decomposition.md`.
