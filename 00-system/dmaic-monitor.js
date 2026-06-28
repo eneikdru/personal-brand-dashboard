@@ -17,6 +17,12 @@ async function monitorPerformance() {
   }
 
   const today = new Date().toISOString().split('T')[0];
+  const existingContent = fs.readFileSync(metricsPath, "utf8");
+
+  if (existingContent.includes(today)) {
+    console.log(`ℹ️  Metrics for ${today} already exist. Skipping duplicate entry.`);
+    return;
+  }
 
   // Mocked logic for FTY and Cycle Time (in a real scenario, this would poll Linear/GitHub)
   const stats = [

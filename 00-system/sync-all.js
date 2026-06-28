@@ -8,16 +8,24 @@ const { updateDashboard } = require("./update-dashboard-data");
 const { processInbox } = require("./process-inbox");
 const { monitorPerformance } = require("./dmaic-monitor");
 const { director } = require("./ems-value-stream-director");
+const { architectSession } = require("./architect-session");
 
 async function syncAll() {
   console.log("🔄 Starting Unified Sync Orchestration...");
 
-  try {
-    console.log("1/5: Processing Inbox Ideas...");
-    await processInbox();
+  const isArchitectMode = process.argv.includes("--architect");
 
-    console.log("2/5: Activating Value Stream Director (Lean Pull)...");
-    await director();
+  try {
+    if (isArchitectMode) {
+      console.log("🏛️  MODE: Advanced Architect Session");
+      await architectSession();
+    } else {
+      console.log("1/5: Processing Inbox Ideas...");
+      await processInbox();
+
+      console.log("2/5: Activating Value Stream Director (Lean Pull)...");
+      await director();
+    }
 
     console.log("3/5: Rebuilding YouTube content (CSVs, MDs)...");
     rebuild();
