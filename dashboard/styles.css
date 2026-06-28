@@ -1,13 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;700&display=swap");
+
 :root {
-  --blue: #3d5fa0;
+  /* Brandbook Colors */
+  --blue: #3d5fa0;         /* Primary: Royal Blue */
+  --ink: #111318;          /* Deep Base: Deep Ink */
+  --graphite: #2d333b;     /* Surface Dark: Graphite */
+  --muted: #6b7280;        /* Text Secondary: Steel Gray */
+  --fog: #f5f7fa;          /* Surface: System Fog */
+  --ice: #e9f0fa;          /* Surface Blue: Ice Blue */
+  --white: #ffffff;        /* White: Clean White */
+  --green: #2e7d5b;        /* Semantic: Verification Green */
+
+  /* Functional Colors */
   --blue-dark: #1e3a6e;
-  --ink: #111318;
-  --graphite: #2d333b;
-  --muted: #6b7280;
-  --fog: #f5f7fa;
-  --ice: #e9f0fa;
-  --white: #ffffff;
-  --green: #2e7d5b;
   --line: #d9dee8;
   --warn: #a56a2a;
   --warn-bg: #fff4e5;
@@ -19,8 +24,8 @@
 
 html {
   color: var(--ink);
-  font-family: Inter, "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
-  letter-spacing: 0;
+  font-family: "IBM Plex Sans", "Inter", sans-serif;
+  letter-spacing: -0.01em;
 }
 
 body {
@@ -122,6 +127,34 @@ input {
 
 .sidebar-note strong {
   font-size: 14px;
+}
+
+.sidebar-action {
+  margin-top: 24px;
+  display: grid;
+  gap: 10px;
+}
+
+.sidebar-action span {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.sidebar-action textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 14px;
+  min-height: 80px;
+  resize: vertical;
+  background: var(--fog);
+}
+
+.full-width {
+  width: 100%;
 }
 
 .main-panel {
@@ -384,6 +417,7 @@ th {
   color: var(--muted);
   font-size: 12px;
   text-transform: uppercase;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 td {

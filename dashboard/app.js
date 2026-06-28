@@ -566,16 +566,11 @@ const commands = [
   ["Брендбук", "проверь этот текст на соответствие брендбуку: "]
 ];
 
-const stats = [
-  ["Выпущено", "2", "видео"],
-  ["Запланировано", "48", "видео"],
-  ["Философы", "50", "аналитическая традиция"]
-];
-
-const philosophers = episodes;
-const metrics = [];
-
-const state = { search: "" };
+const state = {
+  search: "",
+  view: "overview",
+  calendarTab: "pipeline"
+};
 
 const els = {
   stats: document.querySelector("#stats"),
@@ -598,15 +593,30 @@ function isMatch(item) {
 }
 
 function getFilteredEpisodes() {
-  return episodes.filter(isMatch);
+  return episodes.filter(isMatch).filter(item => {
+    if (state.view === "calendar") {
+      return state.calendarTab === "archive" ? item.status === "released" : item.status !== "released";
+    }
+    return true;
+  });
 }
 
 function getNextEpisodes() {
-  return episodes.slice(0, 5);
+  return episodes.filter(item => item.status === "planned").slice(0, 5);
 }
 
 function renderStats() {
-  els.stats.innerHTML = stats.map(([label, value, note]) => `
+  const releasedCount = episodes.filter(e => e.status === "released").length;
+  const plannedCount = episodes.filter(e => e.status === "planned").length;
+  const philosopherCount = new Set(episodes.map(e => e.source)).size;
+
+  const dynamicStats = [
+    ["Выпущено", releasedCount, "видео"],
+    ["В пайплайне", plannedCount, "видео"],
+    ["Философы", philosopherCount, "в индексе"]
+  ];
+
+  els.stats.innerHTML = dynamicStats.map(([label, value, note]) => `
     <article class="stat-card">
       <span>${label}</span>
       <strong>${value}</strong>
@@ -616,7 +626,12 @@ function renderStats() {
 }
 
 function renderNextEpisodes() {
-  els.nextEpisodes.innerHTML = getNextEpisodes().map((item) => `
+  const upcoming = getNextEpisodes();
+  if (upcoming.length === 0) {
+    els.nextEpisodes.innerHTML = "<p class='empty-note'>Все запланированные выпуски вышли.</p>";
+    return;
+  }
+  els.nextEpisodes.innerHTML = upcoming.map((item) => `
     <article class="episode-row">
       <div class="episode-date">Выпуск ${item.episode}</div>
       <div>
@@ -631,14 +646,14 @@ function renderNextEpisodes() {
 function renderCalendar() {
   const rows = getFilteredEpisodes();
   els.calendarRows.innerHTML = rows.map((item) => {
-    const type = "business";
+    const type = item.rubric.includes("аналитики") ? "analyst" : "business";
     return `
       <tr>
         <td>${item.episode}</td>
         <td><span class="rubric-pill ${type}">${item.rubric}</span></td>
         <td>
           <a href="https://youtube.com/@dmitrii.efremov?si=kmKibTcmPNlJIY-5" target="_blank" class="episode-title-link"><strong>${item.title}</strong></a>
-          <small class="table-note">${item.hook}</small>
+          <small class="table-note">${item.hook || item.thesis}</small>
         </td>
         <td>${item.source}</td>
         <td><span class="status-pill ${item.status}">${item.status}</span></td>
@@ -694,17 +709,41 @@ function renderAll() {
 
 document.querySelectorAll(".nav-item").forEach((button) => {
   button.addEventListener("click", () => {
+    state.view = button.dataset.view;
     document.querySelectorAll(".nav-item").forEach((item) => item.classList.remove("active"));
     document.querySelectorAll(".view").forEach((view) => view.classList.remove("active"));
     button.classList.add("active");
     document.querySelector(`#${button.dataset.view}`).classList.add("active");
+    renderAll();
   });
+});
+
+document.body.addEventListener("click", (event) => {
+  const tabBtn = event.target.closest(".segment");
+  if (tabBtn && tabBtn.parentElement.classList.contains("calendar-tabs")) {
+    state.calendarTab = tabBtn.dataset.tab;
+    document.querySelectorAll(".calendar-tabs .segment").forEach(s => s.classList.remove("active"));
+    tabBtn.classList.add("active");
+    renderCalendar();
+  }
 });
 
 els.globalSearch.addEventListener("input", (event) => {
   state.search = event.target.value;
   renderCalendar();
-  renderTiles(els.philosopherTiles, philosophers);
+  renderTiles(els.philosopherTiles, episodes);
+});
+
+document.querySelector("#addTaskBtn").addEventListener("click", () => {
+  const taskText = document.querySelector("#quickTask").value.trim();
+  if (!taskText) return;
+
+  const date = new Date().toISOString().split("T")[0];
+  const command = `node 00-system/add-task.js "${taskText}"`;
+
+  copyCommand(command);
+  alert(`Команда для добавления задачи скопирована!\n\n${command}\n\nВыполните её в терминале.`);
+  document.querySelector("#quickTask").value = "";
 });
 
 document.body.addEventListener("click", (event) => {
