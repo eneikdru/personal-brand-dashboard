@@ -29,6 +29,12 @@
           <strong>Брендбук импортирован</strong>
           <a href="../02-brand/imported/brandbook_efremov_final.md">Открыть файл</a>
         </div>
+
+        <div class="sidebar-action">
+          <span>Новая задача</span>
+          <textarea id="quickTask" placeholder="Что нужно сделать?"></textarea>
+          <button class="ghost-button full-width" id="addTaskBtn">Добавить в Inbox</button>
+        </div>
       </aside>
 
       <main class="main-panel">
@@ -99,7 +105,11 @@
             <div class="panel-head">
               <div>
                 <h2>YouTube-календарь</h2>
-                <p>50 выпусков аналитической философии.</p>
+                <p>Управление производством и архивом.</p>
+              </div>
+              <div class="segmented calendar-tabs">
+                <button class="segment active" data-tab="pipeline" type="button">Пайплайн</button>
+                <button class="segment" data-tab="archive" type="button">Архив</button>
               </div>
             </div>
             <div class="table-wrap">
