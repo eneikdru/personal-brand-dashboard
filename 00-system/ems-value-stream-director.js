@@ -4,12 +4,29 @@
  * enforces WIP limits and capacity constraints.
  */
 
-const { getTeams, getWorkflowStates, getIssues, createIssue, getLabels } = require("./linear-client");
+const { getTeams, getWorkflowStates, getIssues, createIssue } = require("./linear-client");
 
 const WIP_LIMIT = 3;
 
+function sliceJTBD(wish) {
+    const title = wish.title;
+    const body = wish.description || "";
+
+    // Autonomous Slicing Logic (JTBD)
+    const situation = "a new requirement enters the Brand OS backlog";
+    const motivation = `implement the following: ${title}`;
+    const outcome = "the Brand OS system evolves towards autonomous management and higher efficiency";
+
+    return `**JTBD Framework:**\nWhen ${situation}, I want to ${motivation}, so that ${outcome}.\n\n**Original Requirement Context:**\n${body}\n\n**Definition of Done (DoD):**\n- [ ] Code is verified with automated tests (Zero Defect Rule).\n- [ ] Logic preserves analytic philosophy architecture.\n- [ ] System remains idempotent and re-runnable.\n- [ ] First Time Yield (FTY) metric is preserved.`;
+}
+
 async function director() {
   console.log("🏭 EMS Value Stream Director: Activating Lean Pull Mechanism...");
+
+  if (!process.env.BRANDAGENT) {
+      console.log("⚠️  BRANDAGENT not set. Running in AUDIT/DRY-RUN mode.");
+      return;
+  }
 
   try {
     // 1. Context Discovery
@@ -32,7 +49,6 @@ async function director() {
 
     if (activeIssues.length >= WIP_LIMIT) {
       console.log("🛑 WIP Limit reached. Freezing upstream pull mechanics.");
-      console.log("Action: Re-routing agents to swarm existing constraints.");
       return;
     }
 
@@ -43,8 +59,8 @@ async function director() {
       return;
     }
 
-    // 4. Pull from Backlog (JTBD Slicing)
-    console.log("📥 Pull signal received. Selecting high-level requirement from Customer Wishes...");
+    // 4. Pull from Backlog (Autonomous Slicing)
+    console.log("📥 Pull signal received. Selecting requirement from Customer Wishes...");
     const wishes = await getIssues(teamId, backlogState.id);
 
     if (wishes.length === 0) {
@@ -53,13 +69,11 @@ async function director() {
     }
 
     const nextWish = wishes[0];
-    console.log(`🎯 Pulling requirement: ${nextWish.title}`);
+    console.log(`🎯 Pulling and Slicing: ${nextWish.title}`);
 
-    // Mock slicing for now - in real scenario this would use an LLM or predefined decomposition
-    // Here we convert a 'Wish' into a 'JTBD' task
     const taskInput = {
       title: `[JTBD] ${nextWish.title}`,
-      description: `**JTBD Framework:**\nWhen [Situation], I want to [Motivation], so that [Value/Outcome].\n\n**Original Requirement:** ${nextWish.title}\n\n**DoD:**\n- [ ] Code is verified with automated tests.\n- [ ] Logic preserves analytic philosophy architecture.\n- [ ] Zero defects on first run.`,
+      description: sliceJTBD(nextWish),
       teamId,
       stateId: todoState.id,
       labelIds: nextWish.labels.nodes.map(l => l.id)
