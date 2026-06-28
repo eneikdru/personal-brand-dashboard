@@ -132,14 +132,12 @@ async function getCycles(teamId) {
  * @param {string} stateId
  */
 async function getIssues(teamId, stateId = null) {
-  let filter = `team: { id: { eq: $teamId } }`;
-  if (stateId) {
-    filter += `, state: { id: { eq: $stateId } }`;
-  }
-
   const query = `
-    query Issues($teamId: String!, $stateId: String) {
-      issues(filter: { ${filter} }) {
+    query Issues($teamId: ID!, $stateId: ID) {
+      issues(filter: {
+        team: { id: { eq: $teamId } },
+        state: { id: { eq: $stateId } }
+      }) {
         nodes {
           id
           title
@@ -157,6 +155,36 @@ async function getIssues(teamId, stateId = null) {
       }
     }
   `;
+
+  // If stateId is null, we shouldn't pass it in the filter if we want to avoid strict errors,
+  // but Linear's filter: { state: { id: { eq: null } } } might not be what we want (it would look for issues with NO state).
+  // Instead, let's use a simpler query if no stateId is provided.
+
+  if (!stateId) {
+    const simpleQuery = `
+      query Issues($teamId: ID!) {
+        issues(filter: { team: { id: { eq: $teamId } } }) {
+          nodes {
+            id
+            title
+            state {
+              id
+              name
+            }
+            labels {
+              nodes {
+                id
+                name
+              }
+            }
+          }
+        }
+      }
+    `;
+    const data = await linearQuery(simpleQuery, { teamId });
+    return data.issues.nodes;
+  }
+
   const data = await linearQuery(query, { teamId, stateId });
   return data.issues.nodes;
 }
