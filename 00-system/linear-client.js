@@ -132,14 +132,12 @@ async function getCycles(teamId) {
  * @param {string} stateId
  */
 async function getIssues(teamId, stateId = null) {
-  let filter = `team: { id: { eq: $teamId } }`;
-  if (stateId) {
-    filter += `, state: { id: { eq: $stateId } }`;
-  }
-
   const query = `
-    query Issues($teamId: String!, $stateId: String) {
-      issues(filter: { ${filter} }) {
+    query Issues($teamId: ID!, $stateId: ID) {
+      issues(filter: {
+        team: { id: { eq: $teamId } },
+        state: { id: { eq: $stateId } }
+      }) {
         nodes {
           id
           title
@@ -157,6 +155,36 @@ async function getIssues(teamId, stateId = null) {
       }
     }
   `;
+
+  // If stateId is null, we shouldn't pass it in the filter if we want to avoid strict errors,
+  // but Linear's filter: { state: { id: { eq: null } } } might not be what we want (it would look for issues with NO state).
+  // Instead, let's use a simpler query if no stateId is provided.
+
+  if (!stateId) {
+    const simpleQuery = `
+      query Issues($teamId: ID!) {
+        issues(filter: { team: { id: { eq: $teamId } } }) {
+          nodes {
+            id
+            title
+            state {
+              id
+              name
+            }
+            labels {
+              nodes {
+                id
+                name
+              }
+            }
+          }
+        }
+      }
+    `;
+    const data = await linearQuery(simpleQuery, { teamId });
+    return data.issues.nodes;
+  }
+
   const data = await linearQuery(query, { teamId, stateId });
   return data.issues.nodes;
 }
@@ -228,6 +256,52 @@ async function createLabel(input) {
   return data.issueLabelCreate.issueLabel;
 }
 
+/**
+ * Creates a new project in Linear
+ * @param {Object} input - ProjectCreateInput
+ */
+async function createProject(input) {
+  const mutation = `
+    mutation ProjectCreate($input: ProjectCreateInput!) {
+      projectCreate(input: $input) {
+        success
+        project {
+          id
+          name
+        }
+      }
+    }
+  `;
+  const data = await linearQuery(mutation, { input });
+  if (!data.projectCreate.success) {
+    throw new Error("Failed to create project");
+  }
+  return data.projectCreate.project;
+}
+
+/**
+ * Creates or updates a cycle for a team
+ * (Linear automatically manages cycles if enabled, but we can set properties)
+ */
+async function getTeamCycles(teamId) {
+  const query = `
+    query TeamCycles($teamId: String!) {
+      team(id: $teamId) {
+        cycles {
+          nodes {
+            id
+            number
+            startsAt
+            endsAt
+          }
+        }
+      }
+    }
+  `;
+  const data = await linearQuery(query, { teamId });
+  return data.team.cycles.nodes;
+}
+
 module.exports = {
   createIssue,
   getTeams,
@@ -237,5 +311,7 @@ module.exports = {
   getIssues,
   createWorkflowState,
   createLabel,
+  createProject,
+  getTeamCycles,
   linearQuery
 };

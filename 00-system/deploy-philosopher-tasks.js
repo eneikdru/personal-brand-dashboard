@@ -3,7 +3,7 @@
  * This script discovers the required IDs (Team, State, Labels) and creates the 3 atomic tasks.
  */
 
-const { getTeams, getWorkflowStates, getLabels, createIssue } = require("./linear-client");
+const { getTeams, getWorkflowStates, getLabels, createIssue, getIssues } = require("./linear-client");
 
 async function main() {
   console.log("🚀 Deploying Philosopher Carousel tasks to Linear...");
@@ -21,7 +21,10 @@ async function main() {
     if (!todoState) throw new Error("State 'Todo: AI-Agents' not found.");
     console.log(`Found State: ${todoState.name} (${todoState.id})`);
 
-    // 3. Fetch Label IDs
+    // 3. Fetch Existing Issues to avoid duplicates
+    const existingIssues = await getIssues(teamId);
+
+    // 4. Fetch Label IDs
     const labels = await getLabels();
     const philosophyLabel = labels.find(l => l.name === "#agent-philosophy");
     const frontendLabel = labels.find(l => l.name === "#agent-frontend");
@@ -31,7 +34,7 @@ async function main() {
     }
     console.log("Found required labels.");
 
-    // 4. Create Tasks
+    // 5. Create Tasks
     const tasks = [
       {
         title: "[Data] Enrich Philosopher Dataset with Business Risk Theses",
@@ -51,6 +54,12 @@ async function main() {
     ];
 
     for (const task of tasks) {
+      const match = existingIssues.find(i => i.title.toLowerCase() === task.title.toLowerCase());
+      if (match) {
+        console.log(`⚠️ Task '${task.title}' already exists. Skipping.`);
+        continue;
+      }
+
       const issue = await createIssue({
         ...task,
         teamId,

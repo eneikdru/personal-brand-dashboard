@@ -3,7 +3,15 @@
  * Deploys the Linear workspace infrastructure from scratch
  */
 
-const { getTeams, getWorkflowStates, getLabels, createWorkflowState, createLabel } = require("./linear-client");
+const {
+  getTeams,
+  getWorkflowStates,
+  getLabels,
+  createWorkflowState,
+  createLabel,
+  createProject,
+  linearQuery
+} = require("./linear-client");
 
 async function main() {
   console.log("🚀 Initializing EMS Tracker infrastructure...");
@@ -57,7 +65,36 @@ async function main() {
       }
     }
 
-    // 3. Create Labels
+    // 3. Create Projects
+    console.log("Checking existing projects...");
+    const projectsQuery = `query { projects { nodes { id name } } }`;
+    const projectsData = await linearQuery(projectsQuery);
+    const existingProjects = projectsData.projects.nodes;
+
+    const projectsToCreate = [
+      { name: "Brand OS: Content Engine", color: "#f2c94c" },
+      { name: "Brand OS: Infrastructure", color: "#56ccf2" }
+    ];
+
+    for (const projectData of projectsToCreate) {
+      const match = existingProjects.find(p => p.name.toLowerCase() === projectData.name.toLowerCase());
+      if (match) {
+        console.log(`⚠️ Project '${projectData.name}' already exists. Skipping.`);
+        continue;
+      }
+      try {
+        const project = await createProject({
+          name: projectData.name,
+          teamIds: [teamId],
+          color: projectData.color
+        });
+        console.log(`✅ Created Project: ${project.name} (${project.id})`);
+      } catch (err) {
+        console.log(`⚠️ Failed to create project ${projectData.name}: ${err.message}`);
+      }
+    }
+
+    // 4. Create Labels
     console.log("Checking existing labels...");
     const existingLabels = await getLabels();
     console.log(`Current labels: ${existingLabels.map(l => l.name).join(", ")}`);
