@@ -3,12 +3,14 @@ const episodes = [
     "episode": 1,
     "date": "2026-06-16",
     "rubric": "Как думают топ-аналитики",
-    "title": "Вы спорите не о стратегии, а о смысле одного слова",
+    "title": "56% малого бизнеса закрывается из-за этой ошибки",
     "source": "Gottlob Frege",
-    "hook": "Представь рабочую сцену: вы спорите не о стратегии, а о смысле одного слова. Это не абстрактная философия, а момент, где команда теряет ясность.",
+    "hook": "Два кафе. Одинаковая аренда. Одинаковый чек €14. Один закрылся с долгом €23 000. Другой открыл второй филиал. Разница — в одном слове: «клиент». Дмитрий Ефремов разбирает, как немецкий логик Готтлоб Фреге объясняет самую дорогую ошибку малого бизнеса - размытое определение целевой аудитории, которое стоит до €21 600 в год. Четыре проверки точности: операциональность, воспроизводимость, исключаемость, стабильность. Если вы думаете, что понимаете своего клиента - это видео докажет обратное.",
     "thesis": "Смысл фразы меняет действие команды",
     "literature": "Gottlob Frege, Begriffsschrift; The Foundations of Arithmetic",
-    "status": "released"
+    "status": "released",
+    "url": "https://www.youtube.com/watch?v=LBx8GmzE82I",
+    "realPublishedDate": "2026-06-18"
   },
   {
     "episode": 2,
@@ -19,7 +21,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: когда здравый смысл сильнее красивой стратегии. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Очевидное нельзя отменять красивой теорией",
     "literature": "G. E. Moore, Principia Ethica; A Defence of Common Sense",
-    "status": "released"
+    "status": "released",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 3,
@@ -30,18 +33,21 @@ const episodes = [
     "hook": "Представь рабочую сцену: все говорят одно предложение, но внутри него три разных решения. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Поверхностная грамматика скрывает реальную структуру решения",
     "literature": "Bertrand Russell, On Denoting; Problems of Philosophy",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 4,
     "date": "2026-07-07",
     "rubric": "Как думают топ-аналитики",
-    "title": "Команда использует одно слово, но играет в разные игры",
+    "title": "Арт-пространство в Грузии - стоит ли открывать?",
     "source": "Ludwig Wittgenstein",
-    "hook": "Представь рабочую сцену: команда использует одно слово, но играет в разные игры. Это не абстрактная философия, а момент, где команда теряет ясность.",
+    "hook": "Дмитрий Ефремов - предприниматель, консультант и системный аналитик. В этом выпуске он разбирает одну из самых популярных бизнес-идей среди эмигрантов в Грузии - арт-пространство. Почему эта идея рождается снова и снова - и почему почти никогда не становится бизнесом. Вы узнаете, как отличить коллективный дефицит от реального рыночного спроса, зачем убирать слово «арт» из описания проекта, как проверить бизнес-идею за 1 000$ вместо 10 000$ на ремонт и залог, и какие метрики реально показывают жизнеспособность проекта на старте",
     "thesis": "Значение слова видно в правилах его использования",
     "literature": "Ludwig Wittgenstein, Philosophical Investigations",
-    "status": "planned"
+    "status": "released",
+    "url": "https://www.youtube.com/watch?v=G696cL1XASs",
+    "realPublishedDate": "2026-04-19"
   },
   {
     "episode": 5,
@@ -52,7 +58,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: вы спорите о решении, хотя не договорились о правилах языка. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Без явного каркаса спор превращается в шум",
     "literature": "Rudolf Carnap, Logical Syntax of Language; The Logical Structure of the World",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 6,
@@ -63,7 +70,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: встреча закончилась выводом, который никто не может проверить. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Сильное утверждение должно иметь способ проверки",
     "literature": "A. J. Ayer, Language, Truth and Logic",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 7,
@@ -74,7 +82,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: вы наняли процесс, а ждете от него результата. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Категориальная ошибка ломает управленческое ожидание",
     "literature": "Gilbert Ryle, The Concept of Mind",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 8,
@@ -85,7 +94,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: одна фраза руководителя уже изменила поведение команды. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Слова в бизнесе часто являются действиями",
     "literature": "J. L. Austin, How to Do Things with Words",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 9,
@@ -96,7 +106,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: данные выглядят точными, пока вы не спросили: в какой ситуации?. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Факт получает смысл только в контексте применения",
     "literature": "P. F. Strawson, Individuals; Introduction to Logical Theory",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 10,
@@ -107,18 +118,21 @@ const episodes = [
     "hook": "Представь рабочую сцену: человек сказал все правильно, но команда поняла другое. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Смысл коммуникации рождается из намерения и контекста",
     "literature": "H. P. Grice, Logic and Conversation",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 11,
     "date": "2026-08-25",
     "rubric": "Как думают топ-аналитики",
-    "title": "Одна плохая гипотеза держит на себе весь план продаж",
+    "title": "Почему инвесторы говорят нет?",
     "source": "W. V. O. Quine",
-    "hook": "Представь рабочую сцену: одна плохая гипотеза держит на себе весь план продаж. Это не абстрактная философия, а момент, где команда теряет ясность.",
+    "hook": "Дмитрий Ефремов разбирает, почему предприниматели получают отказы от инвесторов, банков и партнёров — даже когда искренне верят в свой продукт. Проблема не в рынке и не в деньгах. Проблема в том, что аргументы без доказательств — это пустые слова. В выпуске Дмитрий объясняет модель аргументации британского философа Стивена Тулмина и показывает, как применять её в реальных деловых переговорах: как строить тезис с фактической опорой, почему расчёты LTV на старте не стоят ничего, что весит больше сорока страниц графиков, и как десять предоплат от реальных покупателей убеждают лучше любой презентации.",
     "thesis": "Убеждения компании связаны в сеть, а не лежат отдельно",
     "literature": "W. V. O. Quine, Two Dogmas of Empiricism; Word and Object",
-    "status": "planned"
+    "status": "released",
+    "url": "https://www.youtube.com/watch?v=tniCGtkXdj4",
+    "realPublishedDate": "2026-06-12"
   },
   {
     "episode": 12,
@@ -129,7 +143,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: факт есть в таблице, но решения из него все равно нет. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Факт становится знанием только в системе оснований",
     "literature": "Wilfrid Sellars, Empiricism and the Philosophy of Mind",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 13,
@@ -140,7 +155,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: клиент сказал простую фразу, а вы перевели ее в неправильную задачу. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Понимание клиента требует интерпретации, а не угадывания мыслей",
     "literature": "Donald Davidson, Inquiries into Truth and Interpretation",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 14,
@@ -151,7 +167,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: все спорят о том же слове, но каждый держит в голове другой объект. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Имя и ссылка важны, когда команда связывает слова с реальностью",
     "literature": "Saul Kripke, Naming and Necessity",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 15,
@@ -162,7 +179,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: значение продукта находится не в презентации, а в среде клиента. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Смысл определяется внешней средой, а не только намерением команды",
     "literature": "Hilary Putnam, The Meaning of Meaning",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 16,
@@ -173,18 +191,21 @@ const episodes = [
     "hook": "Представь рабочую сцену: план выглядит разумно, пока не проверили второй сценарий. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Сценарное мышление проверяет решение через альтернативы",
     "literature": "David Lewis, Counterfactuals; On the Plurality of Worlds",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 17,
     "date": "2026-10-06",
     "rubric": "Как думают топ-аналитики",
-    "title": "Команда делает задачу, но уже забыла, зачем она это делает",
+    "title": "Зачем мы ведем бизнес? Большинство фаундеров не понимают, что строят",
     "source": "G. E. M. Anscombe",
-    "hook": "Представь рабочую сцену: команда делает задачу, но уже забыла, зачем она это делает. Это не абстрактная философия, а момент, где команда теряет ясность.",
+    "hook": "Большинство AI-бизнесов сосредоточены на имитации деятельности: задачи и таски, презентации и таблицы, обещания &quot;революционного AI&quot; вместо работающего продукта. ",
     "thesis": "Действие понимается через намерение и описание цели",
     "literature": "G. E. M. Anscombe, Intention",
-    "status": "planned"
+    "status": "released",
+    "url": "https://www.youtube.com/watch?v=fzPKu4gwvNg",
+    "realPublishedDate": "2026-05-11"
   },
   {
     "episode": 18,
@@ -195,7 +216,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: метрика стала решением, хотя за ошибку заплатит другой человек. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Данные требуют ответственности, когда решение влияет на людей",
     "literature": "Heather Douglas, Science, Policy, and the Value-Free Ideal",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 19,
@@ -206,7 +228,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: роль в системе заставляет человека вести себя как другой пользователь. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Социальные роли меняют поведение продукта и команды",
     "literature": "Sally Haslanger, Resisting Reality",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 20,
@@ -217,7 +240,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: вы улучшили измерение и внезапно изменили сам продукт. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Измерение не только описывает мир, но и перестраивает практику",
     "literature": "Hasok Chang, Inventing Temperature",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 21,
@@ -228,7 +252,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: доверие появляется не после слов, а после принятых обязательств. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Доверие строится на обязательствах и праве спрашивать основания",
     "literature": "Robert Brandom, Making It Explicit",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 22,
@@ -239,7 +264,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: компания тонет не в задачах, а в среде информации. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Информация стала средой, в которой живет бизнес",
     "literature": "Luciano Floridi, The Philosophy of Information",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 23,
@@ -250,7 +276,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: умный человек молчит на встрече, и компания теряет знание. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Знание теряется, когда источнику не дают доверия",
     "literature": "Miranda Fricker, Epistemic Injustice",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 24,
@@ -261,7 +288,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: запуск выстрелил, но никто не знает почему. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Успех без понимания может быть удачей, а не знанием",
     "literature": "Duncan Pritchard, Epistemic Luck",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 25,
@@ -272,7 +300,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: то, что сработало в одном рынке, ломается в другом. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Законы работают через условия, а не одинаково везде",
     "literature": "Nancy Cartwright, How the Laws of Physics Lie; Evidence-Based Policy",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 26,
@@ -283,18 +312,21 @@ const episodes = [
     "hook": "Представь рабочую сцену: клиент решил раньше, чем успел объяснить свое решение. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Решения связаны с мозгом, привычкой и телесной экономией",
     "literature": "Patricia Churchland, Neurophilosophy; Braintrust",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 27,
     "date": "2026-12-15",
     "rubric": "Как думают топ-аналитики",
-    "title": "Вы не имеете права утверждать то, чего еще не знаете",
+    "title": "56% малого бизнеса закрывается из-за этой ошибки",
     "source": "Timothy Williamson",
-    "hook": "Представь рабочую сцену: вы не имеете права утверждать то, чего еще не знаете. Это не абстрактная философия, а момент, где команда теряет ясность.",
+    "hook": "Два кафе. Одинаковая аренда. Одинаковый чек €14. Один закрылся с долгом €23 000. Другой открыл второй филиал. Разница — в одном слове: «клиент». Дмитрий Ефремов разбирает, как немецкий логик Готтлоб Фреге объясняет самую дорогую ошибку малого бизнеса - размытое определение целевой аудитории, которое стоит до €21 600 в год. Четыре проверки точности: операциональность, воспроизводимость, исключаемость, стабильность. Если вы думаете, что понимаете своего клиента - это видео докажет обратное.",
     "thesis": "Утверждение должно соответствовать статусу знания",
     "literature": "Timothy Williamson, Knowledge and Its Limits",
-    "status": "planned"
+    "status": "released",
+    "url": "https://www.youtube.com/watch?v=LBx8GmzE82I",
+    "realPublishedDate": "2026-06-18"
   },
   {
     "episode": 28,
@@ -305,7 +337,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: инструмент уже думает вместе с вами, но вы называете его просто софтом. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Мышление распределено между человеком, инструментом и средой",
     "literature": "Andy Clark, Supersizing the Mind; Natural-Born Cyborgs",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 29,
@@ -316,7 +349,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: пользователь видит не экран, а возможность действовать. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Восприятие уже содержит интерпретацию ситуации",
     "literature": "Susanna Siegel, The Contents of Visual Experience",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 30,
@@ -327,7 +361,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: люди доверяют ответу не потому, что он длинный. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Мы приписываем знание по сигналам уверенности, доступа и надежности",
     "literature": "Jennifer Nagel, Knowledge: A Very Short Introduction",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 31,
@@ -338,18 +373,21 @@ const episodes = [
     "hook": "Представь рабочую сцену: лучший сотрудник знает больше, чем может объяснить в регламенте. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "В бизнесе много неявного знания, которое нельзя свести к инструкции",
     "literature": "Michael Polanyi, Personal Knowledge; The Tacit Dimension",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 32,
     "date": "2027-01-19",
     "rubric": "Как думают топ-аналитики",
-    "title": "Вы спорите о доказательствах, но у вас нет схемы аргумента",
+    "title": "Почему инвесторы говорят нет?",
     "source": "Stephen Toulmin",
-    "hook": "Представь рабочую сцену: вы спорите о доказательствах, но у вас нет схемы аргумента. Это не абстрактная философия, а момент, где команда теряет ясность.",
+    "hook": "Дмитрий Ефремов разбирает, почему предприниматели получают отказы от инвесторов, банков и партнёров — даже когда искренне верят в свой продукт. Проблема не в рынке и не в деньгах. Проблема в том, что аргументы без доказательств — это пустые слова. В выпуске Дмитрий объясняет модель аргументации британского философа Стивена Тулмина и показывает, как применять её в реальных деловых переговорах: как строить тезис с фактической опорой, почему расчёты LTV на старте не стоят ничего, что весит больше сорока страниц графиков, и как десять предоплат от реальных покупателей убеждают лучше любой презентации.",
     "thesis": "Убедительный аргумент требует не просто фактов, а обоснования перехода к выводам",
     "literature": "Stephen Toulmin, The Uses of Argument",
-    "status": "planned"
+    "status": "released",
+    "url": "https://www.youtube.com/watch?v=tniCGtkXdj4",
+    "realPublishedDate": "2026-06-12"
   },
   {
     "episode": 33,
@@ -360,7 +398,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: данные похожи на кроссворд: одна ошибка портит все пересечения. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Обоснование знания строится как кроссворд, где доказательства поддерживают друг друга взаимно",
     "literature": "Susan Haack, Evidence and Inquiry",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 34,
@@ -371,7 +410,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: программа выполняет код, но не понимает смысл бизнеса. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Синтаксиса недостаточно для семантики: имитация понимания не является реальным пониманием",
     "literature": "John Searle, Intentionality; Minds, Brains, and Programs",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 35,
@@ -382,18 +422,21 @@ const episodes = [
     "hook": "Представь рабочую сцену: вы смотрите на метрики пользователя, но не знаете, каково им быть. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Субъективный опыт пользователя нельзя полностью свести к объективным измерениям",
     "literature": "Thomas Nagel, What Is It Like to Be a Bat?; Mortal Questions",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 36,
     "date": "2027-02-16",
     "rubric": "Как думают топ-аналитики",
-    "title": "Гипотеза хороша не тем, что подтверждается, а тем, как ее можно опровергнуть",
+    "title": "Почему ваш MVP не даёт ответов - и как это исправить",
     "source": "Karl Popper",
-    "hook": "Представь рабочую сцену: гипотеза хороша не тем, что подтверждается, а тем, как ее можно опровергнуть. Это не абстрактная философия, а момент, где команда теряет ясность.",
+    "hook": "MVP - это не способ сэкономить на разработке. Это инвестиция в информацию о рынке. В этом выпуске Дмитрий Ефремов разбирает, почему дешёвый старт обходится                                                                                        дороже, как философия Карла Поппера помогает проверять бизнес-идеи, и почему слова клиента «мне нравится» не стоят ничего - пока он не нажал «Оплатить». Разбираем: - почему MVP - это фонарик, а не велосипед из изоленты - принцип фальсифицируемости Поппера в бизнесе - цикл «Создать - Оценить - Научиться» по Эрику Рису - модель ADKAR: как не сломаться когда рынок говорит «нет» - почему разрыв между «хочу купить» и «я купил» — огромный Один реальный платёж скажет вам больше, чем сто фокус-групп.",
     "thesis": "Научность и проверяемость гипотезы определяются ее опровержимостью",
     "literature": "Karl Popper, The Logic of Scientific Discovery",
-    "status": "planned"
+    "status": "released",
+    "url": "https://www.youtube.com/watch?v=zQfIbxF4OWo",
+    "realPublishedDate": "2026-04-27"
   },
   {
     "episode": 37,
@@ -404,7 +447,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: команда строит продукт для мира, которого не существует. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Мы создаем разные версии мира с помощью описаний, систем и репрезентаций",
     "literature": "Nelson Goodman, Fact, Fiction, and Forecast; Ways of Worldmaking",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 38,
@@ -415,7 +459,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: план основан на вере, а не на расчете вероятности. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Убеждения — это карты, по которым мы действуем, а их истинность проверяется успехом действия",
     "literature": "Frank Ramsey, Foundations of Mathematics and other Logical Essays",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 39,
@@ -426,7 +471,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: мы спорим о будущем продукта, как будто оно уже где-то записано. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Смысл утверждения определяется условиями его обоснованности, а не абстрактной истиной",
     "literature": "Michael Dummett, Truth and Other Enigmas",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 40,
@@ -437,7 +483,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: вы строите бренд для человека, который через год станет другим. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Личная идентичность не так важна, как непрерывность намерений и ценностей",
     "literature": "Derek Parfit, Reasons and Persons",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 41,
@@ -448,7 +495,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: ваши данные о рынке — это не просто числа, а концептуальные очки. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Восприятие мира всегда пронизано нашими понятиями и культурой",
     "literature": "John McDowell, Mind and World",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 42,
@@ -459,7 +507,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: процессы в компании работают как модули: никто не видит всей картины. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Мышление модульно, и иногда части системы не знают, что делают другие",
     "literature": "Jerry Fodor, The Modularity of Mind",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 43,
@@ -470,7 +519,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: у вас есть все данные о поведении, но нет понимания опыта клиента. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Трудная проблема сознания: функционального описания недостаточно для понимания субъективности",
     "literature": "David Chalmers, The Conscious Mind",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 44,
@@ -481,7 +531,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: функция продукта — это не то, что он делает сейчас, а то, для чего он выжил. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Биологические функции и цели определяются историей успеха и воспроизводства",
     "literature": "Ruth Millikan, Language, Thought, and Other Biological Categories",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 45,
@@ -492,7 +543,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: бизнес-цель не может быть оправданием, если она ломает базовые ценности. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Добродетели — это не правила, а необходимые качества для процветания сообщества",
     "literature": "Philippa Foot, Virtues and Vices",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 46,
@@ -503,7 +555,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: смысл ваших задач зависит от рынка больше, чем от ваших мыслей. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Содержание мыслей определяется внешней средой и социальными институтами",
     "literature": "Tyler Burge, Individualism and the Mental",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 47,
@@ -514,7 +567,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: вы ссылаетесь на проблему, которой на самом деле нет в данных. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Сингулярные мысли требуют реального информационного канала к объекту",
     "literature": "Gareth Evans, The Varieties of Reference",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 48,
@@ -525,7 +579,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: ваши метрики качества — это просто прилагательные без существительного. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Добро и качество всегда относительны к роду объекта: хороший нож не равен хорошему человеку",
     "literature": "Peter Geach, Good and Evil",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 49,
@@ -536,7 +591,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: мы думаем, что управляем проектом, хотя все уже определено процессами. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Проблема свободы воли в мире, где каждое событие имеет причину",
     "literature": "Peter van Inwagen, An Essay on Free Will",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   },
   {
     "episode": 50,
@@ -547,7 +603,8 @@ const episodes = [
     "hook": "Представь рабочую сцену: ваша уверенность в успехе — это базовая установка, а не вывод из данных. Это не абстрактная философия, а момент, где команда теряет ясность.",
     "thesis": "Некоторые убеждения рациональны без доказательств, если они порождены надежным механизмом",
     "literature": "Alvin Plantinga, Warranted Christian Belief; Warrant and Proper Function",
-    "status": "planned"
+    "status": "planned",
+    "url": "https://youtube.com/@dmitrii.efremov"
   }
 ];
 
@@ -567,8 +624,8 @@ const commands = [
 ];
 
 const stats = [
-  ["Выпущено", "2", "видео"],
-  ["Запланировано", "48", "видео"],
+  ["Выпущено", "8", "видео"],
+  ["Запланировано", "42", "видео"],
   ["Философы", "50", "аналитическая традиция"]
 ];
 
@@ -620,7 +677,7 @@ function renderNextEpisodes() {
     <article class="episode-row">
       <div class="episode-date">Выпуск ${item.episode}</div>
       <div>
-        <a href="https://youtube.com/@dmitrii.efremov?si=kmKibTcmPNlJIY-5" target="_blank" class="episode-title-link"><strong>${item.title}</strong></a>
+        <a href="${item.url || 'https://youtube.com/@dmitrii.efremov'}" target="_blank" class="episode-title-link"><strong>${item.title}</strong></a>
         <small>${item.rubric} · ${item.source}</small>
         <small>${item.thesis}</small>
       </div>
@@ -637,7 +694,7 @@ function renderCalendar() {
         <td>${item.episode}</td>
         <td><span class="rubric-pill ${type}">${item.rubric}</span></td>
         <td>
-          <a href="https://youtube.com/@dmitrii.efremov?si=kmKibTcmPNlJIY-5" target="_blank" class="episode-title-link"><strong>${item.title}</strong></a>
+          <a href="${item.url || 'https://youtube.com/@dmitrii.efremov'}" target="_blank" class="episode-title-link"><strong>${item.title}</strong></a>
           <small class="table-note">${item.hook}</small>
         </td>
         <td>${item.source}</td>
@@ -651,7 +708,7 @@ function renderTiles(container, items) {
   container.innerHTML = items.filter(isMatch).map((item) => `
     <article class="tile">
       <span>выпуск ${item.episode}</span>
-      <a href="https://youtube.com/@dmitrii.efremov?si=kmKibTcmPNlJIY-5" target="_blank" class="episode-title-link"><strong>${item.title}</strong></a>
+      <a href="${item.url || 'https://youtube.com/@dmitrii.efremov'}" target="_blank" class="episode-title-link"><strong>${item.title}</strong></a>
       <small>${item.source}</small>
       <small>${item.thesis}</small>
     </article>
