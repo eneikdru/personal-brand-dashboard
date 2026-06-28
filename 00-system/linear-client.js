@@ -228,6 +228,52 @@ async function createLabel(input) {
   return data.issueLabelCreate.issueLabel;
 }
 
+/**
+ * Creates a new project in Linear
+ * @param {Object} input - ProjectCreateInput
+ */
+async function createProject(input) {
+  const mutation = `
+    mutation ProjectCreate($input: ProjectCreateInput!) {
+      projectCreate(input: $input) {
+        success
+        project {
+          id
+          name
+        }
+      }
+    }
+  `;
+  const data = await linearQuery(mutation, { input });
+  if (!data.projectCreate.success) {
+    throw new Error("Failed to create project");
+  }
+  return data.projectCreate.project;
+}
+
+/**
+ * Creates or updates a cycle for a team
+ * (Linear automatically manages cycles if enabled, but we can set properties)
+ */
+async function getTeamCycles(teamId) {
+  const query = `
+    query TeamCycles($teamId: String!) {
+      team(id: $teamId) {
+        cycles {
+          nodes {
+            id
+            number
+            startsAt
+            endsAt
+          }
+        }
+      }
+    }
+  `;
+  const data = await linearQuery(query, { teamId });
+  return data.team.cycles.nodes;
+}
+
 module.exports = {
   createIssue,
   getTeams,
@@ -237,5 +283,7 @@ module.exports = {
   getIssues,
   createWorkflowState,
   createLabel,
+  createProject,
+  getTeamCycles,
   linearQuery
 };
