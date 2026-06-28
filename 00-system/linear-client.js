@@ -9,6 +9,7 @@ async function linearQuery(query, variables = {}) {
   const token = process.env.BRANDAGENT;
 
   if (!token) {
+    console.warn("⚠️  BRANDAGENT not set. Linear API calls will fail.");
     throw new Error("Environment variable 'BRANDAGENT' is not set. Please provide your Linear API token.");
   }
 

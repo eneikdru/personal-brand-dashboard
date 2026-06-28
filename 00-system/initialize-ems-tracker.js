@@ -65,7 +65,11 @@ async function main() {
     const labelsToCreate = [
       { name: "#agent-backend", color: "#27ae60" },
       { name: "#agent-frontend", color: "#2f80ed" },
-      { name: "#agent-philosophy", color: "#9b51e0" }
+      { name: "#agent-philosophy", color: "#9b51e0" },
+      { name: "#jules-backend-java", color: "#e67e22" },
+      { name: "#jules-backend-go", color: "#3498db" },
+      { name: "#jules-qa-automation", color: "#e74c3c" },
+      { name: "#jules-integrator-api", color: "#f1c40f" }
     ];
 
     for (const labelData of labelsToCreate) {
