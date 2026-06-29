@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>База знаний ЦНИИ Эпидемиологии</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">ФБУН ЦНИИ Эпидемиологии</div>
+            <h1>База знаний</h1>
+            <p class="subtitle">Образовательный центр</p>
+        </header>
+
+        <main>
+            <section class="search-section">
+                <div class="search-container">
+                    <input type="text" id="globalSearch" placeholder="Поиск документов, регламентов, ФГОС..." autocomplete="off">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="quick-filters" id="quickFilters">
+                    <button class="tag" data-filter="прием 2026">Приём 2026</button>
+                    <button class="tag" data-filter="стипендии">Стипендии</button>
+                    <button class="tag" data-filter="гиа">ГИА</button>
+                    <button class="tag" data-filter="шаблоны">Шаблоны ведомостей</button>
+                    <button class="tag" data-filter="ординатура">Ординатура</button>
+                    <button class="tag" data-filter="аспирантура">Аспирантура</button>
+                </div>
+            </section>
+
+            <section class="results-section">
+                <div class="results-header">
+                    <h2 id="resultsTitle">Все документы</h2>
+                    <span id="resultsCount">0 документов</span>
+                </div>
+                <div id="documentGrid" class="document-grid">
+                    <!-- Документы будут загружены через JS -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 ФБУН ЦНИИ Эпидемиологии Роспотребнадзора</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

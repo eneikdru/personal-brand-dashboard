@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<moodle_backup>
+  <information>
+    <name>knowledge_base_crie_backup.mbz</name>
+    <moodle_version>2022041900</moodle_version>
+    <moodle_release>4.0 (Build: 20220419)</moodle_release>
+    <backup_version>2022041900</backup_version>
+    <backup_release>4.0</backup_release>
+    <type>course</type>
+    <format>moodle2</format>
+    <interactive>1</interactive>
+    <mode>10</mode>
+    <execution>1</execution>
+    <executiontime>1688000000</executiontime>
+    <details>
+      <detail backup_id="c6b12a83e028682e8677c77c76892697">
+        <type>course</type>
+        <format>moodle2</format>
+        <interactive>1</interactive>
+        <mode>10</mode>
+        <execution>1</execution>
+        <executiontime>1688000000</executiontime>
+      </detail>
+    </details>
+    <contents>
+      <course>
+        <courseid>1</courseid>
+        <title>База Знаний ЦНИИ Эпидемиологии</title>
+        <directory>course</directory>
+      </course>
+      <activities>
+
+        <activity>
+          <moduleid>100</moduleid>
+          <sectionid>0</sectionid>
+          <modulename>resource</modulename>
+          <title>Положение об образовательном центре</title>
+          <directory>activities/resource_100</directory>
+        </activity>
+        <activity>
+          <moduleid>101</moduleid>
+          <sectionid>1</sectionid>
+          <modulename>resource</modulename>
+          <title>Порядок приема на обучение по программам ординатуры на 2026/27 учебный год</title>
+          <directory>activities/resource_101</directory>
+        </activity>
+        <activity>
+          <moduleid>102</moduleid>
+          <sectionid>2</sectionid>
+          <modulename>resource</modulename>
+          <title>Положение о стипендиальном обеспечении и других формах материальной поддержки</title>
+          <directory>activities/resource_102</directory>
+        </activity>
+        <activity>
+          <moduleid>103</moduleid>
+          <sectionid>3</sectionid>
+          <modulename>resource</modulename>
+          <title>Порядок приема на обучение по программам ординатуры на 2025/26 учебный год</title>
+          <directory>activities/resource_103</directory>
+        </activity>
+      </activities>
+      <sections>
+        <section>
+          <sectionid>1</sectionid>
+          <title>Нормативная база</title>
+          <directory>sections/section_1</directory>
+        </section>
+      </sections>
+    </contents>
+    <settings>
+      <setting>
+        <level>root</level>
+        <name>filename</name>
+        <value>knowledge_base_crie_backup.mbz</value>
+      </setting>
+    </settings>
+  </information>
+</moodle_backup>
